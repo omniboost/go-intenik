@@ -1,6 +1,6 @@
 module github.com/omniboost/go-intenik
 
-go 1.18
+go 1.19
 
 require (
 	github.com/gorilla/schema v0.0.0-20171211162101-9fa3b6af65dc
