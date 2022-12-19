@@ -1,4 +1,4 @@
-package toast
+package intenik
 
 import (
 	"bytes"
@@ -14,17 +14,16 @@ import (
 	"net/textproto"
 	"net/url"
 	"path"
-	"strconv"
 	"strings"
 	"text/template"
 
-	"github.com/omniboost/go-toast/utils"
+	"github.com/omniboost/go-intenik/utils"
 	"github.com/pkg/errors"
 )
 
 const (
 	libraryVersion = "0.0.1"
-	userAgent      = "go-toast/" + libraryVersion
+	userAgent      = "go-intenik/" + libraryVersion
 	mediaType      = "application/json"
 	charset        = "utf-8"
 )
@@ -32,12 +31,12 @@ const (
 var (
 	BaseURL = url.URL{
 		Scheme: "https",
-		Host:   "ws-api.toasttab.com",
-		Path:   "",
+		Host:   "dev-api.meldescheine.de",
+		Path:   "/api/",
 	}
 )
 
-// NewClient returns a new Exact Globe Client client
+// NewClient returns a new Intenik client
 func NewClient(httpClient *http.Client) *Client {
 	if httpClient == nil {
 		httpClient = http.DefaultClient
@@ -55,7 +54,7 @@ func NewClient(httpClient *http.Client) *Client {
 	return client
 }
 
-// Client manages communication with Exact Globe Client
+// Client manages communication with Intenik
 type Client struct {
 	// HTTP client used to communicate with the Client.
 	http *http.Client
@@ -64,10 +63,9 @@ type Client struct {
 	baseURL url.URL
 
 	// credentials
-	clientID                  string
-	clientSecret              string
-	toastRestaurantExternalID string
-	token                     Token
+	username string
+	password string
+	token    string
 
 	// User agent for client
 	userAgent string
@@ -90,28 +88,20 @@ func (c *Client) SetHTTPClient(client *http.Client) {
 	c.http = client
 }
 
-func (c Client) ClientID() string {
-	return c.clientID
+func (c Client) Username() string {
+	return c.username
 }
 
-func (c *Client) SetClientID(clientID string) {
-	c.clientID = clientID
+func (c *Client) SetUsername(username string) {
+	c.username = username
 }
 
-func (c Client) ClientSecret() string {
-	return c.clientSecret
+func (c Client) Password() string {
+	return c.password
 }
 
-func (c *Client) SetClientSecret(clientSecret string) {
-	c.clientSecret = clientSecret
-}
-
-func (c Client) ToastRestaurantExternalID() string {
-	return c.toastRestaurantExternalID
-}
-
-func (c *Client) SetToastRestaurantExternalID(toastRestaurantExternalID string) {
-	c.toastRestaurantExternalID = toastRestaurantExternalID
+func (c *Client) SetPassword(password string) {
+	c.password = password
 }
 
 func (c Client) Debug() bool {
@@ -178,6 +168,9 @@ func (c *Client) GetEndpointURL(p string, pathParams PathParams) url.URL {
 	clientURL.RawQuery = q.Encode()
 
 	clientURL.Path = path.Join(clientURL.Path, parsed.Path)
+	if clientURL.Path[len(clientURL.Path)-1:] != "/" {
+		clientURL.Path = clientURL.Path + "/"
+	}
 
 	tmpl, err := template.New("path").Parse(clientURL.Path)
 	if err != nil {
@@ -235,9 +228,6 @@ func (c *Client) NewRequest(ctx context.Context, req Request) (*http.Request, er
 	r.Header.Add("Content-Type", fmt.Sprintf("%s; charset=%s", c.MediaType(), c.Charset()))
 	r.Header.Add("Accept", c.MediaType())
 	r.Header.Add("User-Agent", c.UserAgent())
-	if c.ToastRestaurantExternalID() != "" {
-		r.Header.Add("Toast-Restaurant-External-ID", c.ToastRestaurantExternalID())
-	}
 
 	return r, nil
 }
@@ -455,24 +445,16 @@ type ErrorResponse struct {
 	// HTTP response that caused this error
 	Response *http.Response
 
-	Status           int         `json:"status"`
-	Code             int         `json:"code"`
-	Message          string      `json:"message"`
-	MessageKey       string      `json:"messageKey"`
-	FieldName        string      `json:"fieldName"`
-	Link             string      `json:"link"`
-	RequestID        string      `json:"requestId"`
-	DeveloperMessage string      `json:"developerMessage"`
-	Errors           []string    `json:"errors"`
-	CanRetry         interface{} `json:"canRetry"`
+	StatusCode int    `json:"status_code"`
+	Detail     string `json:"detail"`
 }
 
 func (r *ErrorResponse) Error() string {
-	if r.Code == 0 {
+	if r.StatusCode == 0 {
 		return ""
 	}
 
-	return fmt.Sprintf("%d: %s", r.Code, r.Message)
+	return fmt.Sprintf("%d: %s", r.StatusCode, r.Detail)
 }
 
 func checkContentType(response *http.Response) error {
@@ -523,10 +505,10 @@ func GetFileContentType(file io.Reader) (string, error) {
 }
 
 func (c *Client) InitToken(req *http.Request) error {
-	if c.token.AccessToken == "" {
-		req := c.NewLoginPostRequest()
-		req.RequestBody().ClientID = c.ClientID()
-		req.RequestBody().ClientSecret = c.ClientSecret()
+	if c.token == "" {
+		req := c.NewTokenPostRequest()
+		req.RequestBody().Username = c.Username()
+		req.RequestBody().Password = c.Password()
 		resp, err := req.Do()
 		if err != nil {
 			return errors.WithStack(err)
@@ -535,63 +517,18 @@ func (c *Client) InitToken(req *http.Request) error {
 		c.token = resp.Token
 	}
 
-	if c.token.IsExpired() {
-		req := c.NewLoginPostRequest()
-		req.RequestBody().ClientID = c.ClientID()
-		req.RequestBody().ClientSecret = c.ClientSecret()
-		resp, err := req.Do()
-		if err != nil {
-			return errors.WithStack(err)
-		}
+	// if c.token.IsExpired() {
+	// 	req := c.NewTokenPostRequest()
+	// 	req.RequestBody().ClientID = c.ClientID()
+	// 	req.RequestBody().ClientSecret = c.ClientSecret()
+	// 	resp, err := req.Do()
+	// 	if err != nil {
+	// 		return errors.WithStack(err)
+	// 	}
 
-		c.token = resp.Token
-	}
+	// 	c.token = resp.Token
+	// }
 
-	req.Header.Add("Authorization", fmt.Sprintf("Bearer %s", c.token.AccessToken))
+	req.Header.Add("Authorization", fmt.Sprintf("JWT %s", c.token))
 	return nil
-}
-
-func (c *Client) GetNextURL(resp *http.Response) (string, error) {
-	for _, h := range resp.Header.Values("Link") {
-		pieces := strings.Split(h, "; ")
-		if len(pieces) < 2 {
-			// do nothing
-			continue
-		}
-
-		if pieces[1] == `rel="next"` {
-			return strings.TrimRight(strings.TrimLeft(pieces[0], "<"), ">"), nil
-		}
-	}
-
-	return "", nil
-}
-
-func (c *Client) GetNextPage(resp *http.Response) (int, error) {
-	s, err := c.GetNextURL(resp)
-	if s == "" {
-		return 0, nil
-	}
-
-	u, err := url.Parse(s)
-	if err != nil {
-		return 0, err
-	}
-
-	s = u.Query().Get("page")
-	return strconv.Atoi(s)
-}
-
-func (c *Client) GetPageToken(resp *http.Response) (string, error) {
-	s, err := c.GetNextURL(resp)
-	if s == "" {
-		return "", nil
-	}
-
-	u, err := url.Parse(s)
-	if err != nil {
-		return "", err
-	}
-
-	return u.Query().Get("pageToken"), nil
 }

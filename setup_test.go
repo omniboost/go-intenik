@@ -1,4 +1,4 @@
-package toast_test
+package intenik_test
 
 import (
 	"log"
@@ -6,7 +6,7 @@ import (
 	"os"
 	"testing"
 
-	asperion "github.com/omniboost/go-toast"
+	asperion "github.com/omniboost/go-intenik"
 )
 
 var (
@@ -17,9 +17,8 @@ func TestMain(m *testing.M) {
 	var err error
 
 	baseURLString := os.Getenv("BASE_URL")
-	clientID := os.Getenv("CLIENT_ID")
-	clientSecret := os.Getenv("CLIENT_SECRET")
-	toastRestaurantExternalID := os.Getenv("TOAST_RESTAURANT_EXTERNAL_ID")
+	username := os.Getenv("INTENIK_USERNAME")
+	password := os.Getenv("INTENIK_PASSWORD")
 	debug := os.Getenv("DEBUG")
 	if err != nil {
 		log.Fatal(err)
@@ -34,9 +33,8 @@ func TestMain(m *testing.M) {
 	}
 
 	client = asperion.NewClient(nil)
-	client.SetClientID(clientID)
-	client.SetClientSecret(clientSecret)
-	client.SetToastRestaurantExternalID(toastRestaurantExternalID)
+	client.SetUsername(username)
+	client.SetPassword(password)
 	if debug != "" {
 		client.SetDebug(true)
 	}

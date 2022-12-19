@@ -1,4 +1,4 @@
-module github.com/omniboost/go-toast
+module github.com/omniboost/go-intenik
 
 go 1.18
 

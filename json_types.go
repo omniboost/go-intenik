@@ -1,4 +1,4 @@
-package toast
+package intenik
 
 import (
 	"encoding/json"

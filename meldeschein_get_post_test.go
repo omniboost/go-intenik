@@ -1,4 +1,4 @@
-package toast_test
+package intenik_test
 
 import (
 	"encoding/json"
@@ -6,8 +6,9 @@ import (
 	"testing"
 )
 
-func TestTaxRatesGet(t *testing.T) {
-	req := client.NewTaxRatesGetRequest()
+func TestMeldescheineGetPost(t *testing.T) {
+	req := client.NewMeldescheineGetPostRequest()
+	// req.PathParams().GUID = client.ToastRestaurantExternalID()
 	resp, err, _ := req.Do()
 	if err != nil {
 		t.Error(err)
