@@ -7,8 +7,8 @@ import (
 	"github.com/omniboost/go-intenik/utils"
 )
 
-func (c *Client) NewMeldescheineGetPostRequest() MeldescheineGetPostRequest {
-	r := MeldescheineGetPostRequest{
+func (c *Client) NewMeldescheinGetPostRequest() MeldescheinGetPostRequest {
+	r := MeldescheinGetPostRequest{
 		client:  c,
 		method:  http.MethodPost,
 		headers: http.Header{},
@@ -20,22 +20,22 @@ func (c *Client) NewMeldescheineGetPostRequest() MeldescheineGetPostRequest {
 	return r
 }
 
-type MeldescheineGetPostRequest struct {
+type MeldescheinGetPostRequest struct {
 	client      *Client
-	queryParams *MeldescheineGetPostRequestQueryParams
-	pathParams  *MeldescheineGetPostRequestPathParams
+	queryParams *MeldescheinGetPostRequestQueryParams
+	pathParams  *MeldescheinGetPostRequestPathParams
 	method      string
 	headers     http.Header
-	requestBody MeldescheineGetPostRequestBody
+	requestBody MeldescheinGetPostRequestBody
 }
 
-func (r MeldescheineGetPostRequest) NewQueryParams() *MeldescheineGetPostRequestQueryParams {
-	return &MeldescheineGetPostRequestQueryParams{}
+func (r MeldescheinGetPostRequest) NewQueryParams() *MeldescheinGetPostRequestQueryParams {
+	return &MeldescheinGetPostRequestQueryParams{}
 }
 
-type MeldescheineGetPostRequestQueryParams struct{}
+type MeldescheinGetPostRequestQueryParams struct{}
 
-func (p MeldescheineGetPostRequestQueryParams) ToURLValues() (url.Values, error) {
+func (p MeldescheinGetPostRequestQueryParams) ToURLValues() (url.Values, error) {
 	encoder := utils.NewSchemaEncoder()
 	encoder.RegisterEncoder(Date{}, utils.EncodeSchemaMarshaler)
 	encoder.RegisterEncoder(DateTime{}, utils.EncodeSchemaMarshaler)
@@ -49,74 +49,74 @@ func (p MeldescheineGetPostRequestQueryParams) ToURLValues() (url.Values, error)
 	return params, nil
 }
 
-func (r *MeldescheineGetPostRequest) QueryParams() *MeldescheineGetPostRequestQueryParams {
+func (r *MeldescheinGetPostRequest) QueryParams() *MeldescheinGetPostRequestQueryParams {
 	return r.queryParams
 }
 
-func (r MeldescheineGetPostRequest) NewPathParams() *MeldescheineGetPostRequestPathParams {
-	return &MeldescheineGetPostRequestPathParams{}
+func (r MeldescheinGetPostRequest) NewPathParams() *MeldescheinGetPostRequestPathParams {
+	return &MeldescheinGetPostRequestPathParams{}
 }
 
-type MeldescheineGetPostRequestPathParams struct {
+type MeldescheinGetPostRequestPathParams struct {
 	GUID string `schema:"GUID"`
 }
 
-func (p *MeldescheineGetPostRequestPathParams) Params() map[string]string {
+func (p *MeldescheinGetPostRequestPathParams) Params() map[string]string {
 	return map[string]string{
 		"GUID": p.GUID,
 	}
 }
 
-func (r *MeldescheineGetPostRequest) PathParams() *MeldescheineGetPostRequestPathParams {
+func (r *MeldescheinGetPostRequest) PathParams() *MeldescheinGetPostRequestPathParams {
 	return r.pathParams
 }
 
-func (r *MeldescheineGetPostRequest) PathParamsInterface() PathParams {
+func (r *MeldescheinGetPostRequest) PathParamsInterface() PathParams {
 	return r.pathParams
 }
 
-func (r *MeldescheineGetPostRequest) SetMethod(method string) {
+func (r *MeldescheinGetPostRequest) SetMethod(method string) {
 	r.method = method
 }
 
-func (r *MeldescheineGetPostRequest) Method() string {
+func (r *MeldescheinGetPostRequest) Method() string {
 	return r.method
 }
 
-func (r MeldescheineGetPostRequest) NewRequestBody() MeldescheineGetPostRequestBody {
-	return MeldescheineGetPostRequestBody{}
+func (r MeldescheinGetPostRequest) NewRequestBody() MeldescheinGetPostRequestBody {
+	return MeldescheinGetPostRequestBody{}
 }
 
-type MeldescheineGetPostRequestBody struct {
+type MeldescheinGetPostRequestBody struct {
 	Meta         Meta  `json:"meta"`
 	Meldescheine []int `json:"meldescheine"`
 }
 
-func (r *MeldescheineGetPostRequest) RequestBody() *MeldescheineGetPostRequestBody {
-	return nil
+func (r *MeldescheinGetPostRequest) RequestBody() *MeldescheinGetPostRequestBody {
+	return &r.requestBody
 }
 
-func (r *MeldescheineGetPostRequest) RequestBodyInterface() interface{} {
-	return nil
+func (r *MeldescheinGetPostRequest) RequestBodyInterface() interface{} {
+	return r.requestBody
 }
 
-func (r *MeldescheineGetPostRequest) SetRequestBody(body MeldescheineGetPostRequestBody) {
+func (r *MeldescheinGetPostRequest) SetRequestBody(body MeldescheinGetPostRequestBody) {
 	r.requestBody = body
 }
 
-func (r *MeldescheineGetPostRequest) NewResponseBody() *MeldescheineGetPostResponseBody {
-	return &MeldescheineGetPostResponseBody{}
+func (r *MeldescheinGetPostRequest) NewResponseBody() *MeldescheinGetPostResponseBody {
+	return &MeldescheinGetPostResponseBody{}
 }
 
-type MeldescheineGetPostResponseBody struct {
+type MeldescheinGetPostResponseBody struct {
 }
 
-func (r *MeldescheineGetPostRequest) URL() *url.URL {
+func (r *MeldescheinGetPostRequest) URL() *url.URL {
 	u := r.client.GetEndpointURL("/import/meldeschein/get/", r.PathParams())
 	return &u
 }
 
-func (r *MeldescheineGetPostRequest) Do() (MeldescheineGetPostResponseBody, error, *http.Response) {
+func (r *MeldescheinGetPostRequest) Do() (MeldescheinGetPostResponseBody, error, *http.Response) {
 	// Create http request
 	req, err := r.client.NewRequest(nil, r)
 	if err != nil {

@@ -6,10 +6,9 @@ import (
 	"testing"
 )
 
-func TestMeldescheinGetPost(t *testing.T) {
-	req := client.NewMeldescheinGetPostRequest()
+func TestMeldescheinStornierenPost(t *testing.T) {
+	req := client.NewMeldescheinStornierenPostRequest()
 	// req.PathParams().GUID = client.ToastRestaurantExternalID()
-	req.RequestBody().Meldescheine = []int{12}
 	resp, err, _ := req.Do()
 	if err != nil {
 		t.Error(err)

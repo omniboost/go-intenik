@@ -6,11 +6,11 @@ import (
 	"os"
 	"testing"
 
-	asperion "github.com/omniboost/go-intenik"
+	"github.com/omniboost/go-intenik"
 )
 
 var (
-	client *asperion.Client
+	client *intenik.Client
 )
 
 func TestMain(m *testing.M) {
@@ -32,7 +32,7 @@ func TestMain(m *testing.M) {
 		}
 	}
 
-	client = asperion.NewClient(nil)
+	client = intenik.NewClient(nil)
 	client.SetUsername(username)
 	client.SetPassword(password)
 	if debug != "" {

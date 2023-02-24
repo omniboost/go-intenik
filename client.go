@@ -400,6 +400,11 @@ func CheckResponse(r *http.Response) error {
 	// 	return errorResponse
 	// }
 
+	err := checkContentType(r)
+	if err != nil {
+		return errors.WithStack(err)
+	}
+
 	if c := r.StatusCode; c >= 200 && c <= 299 {
 		return nil
 	}
@@ -409,11 +414,6 @@ func CheckResponse(r *http.Response) error {
 	r.Body = ioutil.NopCloser(bytes.NewReader(data))
 	if err != nil {
 		return errorResponse
-	}
-
-	err = checkContentType(r)
-	if err != nil {
-		return errors.WithStack(err)
 	}
 
 	if r.ContentLength == 0 {

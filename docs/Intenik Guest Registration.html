@@ -1,0 +1,1709 @@
+<!doctype html>
+<html lang="nl-NL">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>API</title>
+
+            <meta http-equiv="Content-Security-Policy" content="frame-src &#039;self&#039; https://*.draw.io https://*.youtube.com https://*.youtube-nocookie.com https://*.vimeo.com https://embed.diagrams.net; script-src http: https: &#039;nonce-NgqDDvQI33kmKQTRhQ1syyS0&#039; &#039;strict-dynamic&#039;; object-src &#039;self&#039;; base-uri &#039;self&#039;">
+    
+    <style>
+            ﻿:root{--color-primary: #206ea7;--color-primary-light: rgba(32,110,167,0.15);--color-page: #206ea7;--color-page-draft: #7e50b1;--color-chapter: #af4d0d;--color-book: #077b70;--color-bookshelf: #a94747;--bg-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100%25' width='100%25'%3E%3Cdefs%3E%3Cpattern id='doodad' width='19' height='19' viewBox='0 0 40 40' patternUnits='userSpaceOnUse' patternTransform='rotate(143)'%3E%3Crect width='100%25' height='100%25' fill='rgba(42, 67, 101,0)'/%3E%3Cpath d='M-10 30h60v20h-60zM-10-10h60v20h-60' fill='rgba(26, 32, 44,0)'/%3E%3Cpath d='M-10 10h60v20h-60zM-10-30h60v20h-60z' fill='rgba(0, 0, 0,0.05)'/%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23doodad)' height='200%25' width='200%25'/%3E%3C/svg%3E")}:root.dark-mode{--bg-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100%25' width='100%25'%3E%3Cdefs%3E%3Cpattern id='doodad' width='19' height='19' viewBox='0 0 40 40' patternUnits='userSpaceOnUse' patternTransform='rotate(143)'%3E%3Crect width='100%25' height='100%25' fill='rgba(42, 67, 101,0)'/%3E%3Cpath d='M-10 30h60v20h-60zM-10-10h60v20h-60' fill='rgba(26, 32, 44,0)'/%3E%3Cpath d='M-10 10h60v20h-60zM-10-30h60v20h-60z' fill='rgba(255, 255, 255,0.05)'/%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23doodad)' height='200%25' width='200%25'/%3E%3C/svg%3E")}*{box-sizing:border-box;outline-color:var(--color-primary);outline-width:1px}*:focus{outline-style:dotted}html{height:100%;overflow-y:scroll;background-color:#f2f2f2}html.flexbox{overflow-y:hidden}html.dark-mode{background-color:#111}body{font-size:14px;line-height:1.6;color:#444;-webkit-font-smoothing:antialiased;height:100%;display:flex;flex-direction:column}html.dark-mode body{color:#aaa}body,button,input,select,label,textarea{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Oxygen","Ubuntu","Roboto","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif}.Codemirror,pre,#markdown-editor-input,.editor-toolbar,.code-base,span.code,code{font-family:"Lucida Console","DejaVu Sans Mono","Ubuntu Mono",Monaco,monospace}h1{font-size:3.425em;line-height:1.22222222em;margin-top:.48888889em;margin-bottom:.48888889em}h2{font-size:2.8275em;line-height:1.294117647em;margin-top:.8627451em;margin-bottom:.43137255em}h3{font-size:2.333em;line-height:1.221428572em;margin-top:.78571429em;margin-bottom:.43137255em}h4{font-size:1.666em;line-height:1.375em;margin-top:.78571429em;margin-bottom:.43137255em}h1,h2,h3,h4,h5,h6{font-weight:400;position:relative;display:block;color:#222}html.dark-mode h1,html.dark-mode h2,html.dark-mode h3,html.dark-mode h4,html.dark-mode h5,html.dark-mode h6{color:#bbb}h1 .subheader,h2 .subheader,h3 .subheader,h4 .subheader,h5 .subheader,h6 .subheader{font-size:.5em;line-height:1em;color:#969696}h5{font-size:1.4em}h5,h6{line-height:1.2em;margin-top:.78571429em;margin-bottom:.66em}@media screen and (max-width: 600px){h1{font-size:2.8275em}h2{font-size:2.333em}h3{font-size:1.666em}h4{font-size:1.333em}h5{font-size:1.161616em}}.list-heading{font-size:2rem}h2.list-heading{font-size:1.333rem}a{color:var(--color-primary);fill:currentColor;cursor:pointer;text-decoration:none;transition:filter ease-in-out 80ms;line-height:1.6}a:hover{text-decoration:underline}a.icon{display:inline-block}a svg{position:relative;display:inline-block}a:focus img:only-child{outline:2px dashed var(--color-primary);outline-offset:2px}a.no-link-style{color:inherit}a.no-link-style:hover{text-decoration:none}.blended-links a{color:inherit}.blended-links a svg{fill:currentColor}p,ul,ol,pre,table,blockquote{margin-top:.3em;margin-bottom:1.375em}hr{border:0;height:1px;background:#eaeaea;margin-bottom:24px}html.dark-mode hr{background:#555}hr.faded{background-image:linear-gradient(to right, #FFF, #e3e0e0 20%, #e3e0e0 80%, #FFF)}hr.darker{background:#ddd}html.dark-mode hr.darker{background:#666}hr.margin-top,hr.even{margin-top:24px}strong,b,.bold,.strong{font-weight:bold}strong>strong,strong>b,strong>.bold,strong>.strong,b>strong,b>b,b>.bold,b>.strong,.bold>strong,.bold>b,.bold>.bold,.bold>.strong,.strong>strong,.strong>b,.strong>.bold,.strong>.strong{font-weight:bolder}em,i,.italic{font-style:italic}small,p.small,span.small,.text-small{font-size:.75rem}sup,.superscript{vertical-align:super;font-size:.8em}sub,.subscript{vertical-align:sub;font-size:.8em}pre{font-size:12px;border:1px solid #ddd;background-color:#f5f5f5;border-color:#ddd;padding-left:31px;position:relative;padding-top:3px;padding-bottom:3px}html.dark-mode pre{background-color:#2b2b2b}html.dark-mode pre{border-color:#111}pre:after{content:"";display:block;position:absolute;top:0;width:29px;left:0;height:100%;background-color:#f5f5f5;border-right:1px solid #ddd}html.dark-mode pre:after{background-color:#313335}html.dark-mode pre:after{border-right:none}@media print{pre{padding-left:12px}pre:after{display:none}}blockquote{display:block;position:relative;border-left:4px solid var(--color-primary);background-color:#f8f8f8;padding:12px 16px 12px 32px;overflow:auto}html.dark-mode blockquote{background-color:#333}blockquote:before{content:"“";font-size:2em;font-weight:bold;position:absolute;top:12px;left:12px;color:#777}.text-mono{font-family:"Lucida Console","DejaVu Sans Mono","Ubuntu Mono",Monaco,monospace}.text-uppercase{text-transform:uppercase}.text-capitals{text-transform:capitalize}.code-base,span.code,code{font-size:.84em;border:1px solid #ddd;border-radius:3px;background-color:#f8f8f8;border-color:#ddd}html.dark-mode .code-base,html.dark-mode span.code,html.dark-mode code{background-color:#2b2b2b}html.dark-mode .code-base,html.dark-mode span.code,html.dark-mode code{border-color:#444}code{display:inline;padding:1px 3px;white-space:pre-wrap;line-height:1.2em}span.code{padding:1px 6px}pre code{background-color:rgba(0,0,0,0);border:0;font-size:1em;display:block;line-height:1.6}span.highlight{font-weight:bold;padding:2px 4px}ul,ol{padding-left:32px;padding-right:32px;display:flow-root}ul p,ol p{margin:0}ul{list-style:disc}ul ul{list-style:circle}ul label{margin:0}ol{list-style:decimal}li>ol,li>ul{margin-top:0;margin-bottom:0;margin-block-end:0;margin-block-start:0;padding-block-end:0;padding-block-start:0;padding-left:19.2px;padding-right:19.2px}li.checkbox-item,li.task-list-item{display:list-item;list-style:none;margin-left:-19.2px}li.checkbox-item input[type=checkbox],li.task-list-item input[type=checkbox]{margin-right:6px}li.checkbox-item li.checkbox-item,li.checkbox-item li.task-list-item,li.task-list-item li.checkbox-item,li.task-list-item li.task-list-item{margin-left:6px}.underlined{text-decoration:underline}.text-center{text-align:center}.text-left{text-align:start}.text-right{text-align:end}@media screen and (min-width: 360px){.text-xxs-center{text-align:center}.text-xxs-left{text-align:start}.text-xxs-right{text-align:end}}@media screen and (min-width: 400px){.text-xs-center{text-align:center}.text-xs-left{text-align:start}.text-xs-right{text-align:end}}@media screen and (min-width: 600px){.text-s-center{text-align:center}.text-s-left{text-align:start}.text-s-right{text-align:end}}@media screen and (min-width: 880px){.text-m-center{text-align:center}.text-m-left{text-align:start}.text-m-right{text-align:end}}@media screen and (min-width: 1000px){.text-l-center{text-align:center}.text-l-left{text-align:start}.text-l-right{text-align:end}}@media screen and (min-width: 1100px){.text-xl-center{text-align:center}.text-xl-left{text-align:start}.text-xl-right{text-align:end}}.text-bigger{font-size:1.1em}.text-large{font-size:1.6666em}.no-color{color:inherit}.break-text{word-wrap:break-word;overflow-wrap:break-word}.text-limit-lines-1{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.text-limit-lines-2{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}.header-group{margin:16px 0}.header-group h1,.header-group h2,.header-group h3,.header-group h4,.header-group h5,.header-group h6{margin:0}span.sep{color:#bbb;padding:0 6px}.list>*{display:block}.svg-icon{width:1em;height:1em;display:inline-block;position:relative;bottom:-0.105em;margin-inline-end:6px;pointer-events:none;fill:currentColor}.container{max-width:1400px;margin-inline-start:auto;margin-inline-end:auto;padding-inline-start:16px;padding-inline-end:16px}.container.medium{max-width:1100px}.container.small{max-width:840px}.container.very-small{max-width:480px}.grid{display:grid;grid-column-gap:24px;grid-row-gap:24px}.grid>*{min-width:0}.grid.half{grid-template-columns:1fr 1fr}.grid.third{grid-template-columns:1fr 1fr 1fr}.grid.left-focus{grid-template-columns:2fr 1fr}.grid.right-focus{grid-template-columns:1fr 3fr}.grid.gap-y-xs{grid-row-gap:6px}.grid.gap-xl{grid-column-gap:32px;grid-row-gap:32px}.grid.gap-xxl{grid-column-gap:48px;grid-row-gap:48px}.grid.v-center{align-items:center}.grid.v-end{align-items:end}.grid.no-gap{grid-row-gap:0;grid-column-gap:0}.grid.no-row-gap{grid-row-gap:0}@media screen and (max-width: 880px){.grid.third:not(.no-break){grid-template-columns:1fr 1fr}.grid.half:not(.no-break),.grid.left-focus:not(.no-break),.grid.right-focus:not(.no-break){grid-template-columns:1fr}.grid.half.collapse-xs{grid-template-columns:1fr 1fr}.grid.gap-xl{grid-column-gap:16px;grid-row-gap:16px}.grid.right-focus.reverse-collapse>*:nth-child(2){order:0}.grid.right-focus.reverse-collapse>*:nth-child(1){order:1}}@media screen and (max-width: 600px){.grid.third:not(.no-break){grid-template-columns:1fr}}@media screen and (max-width: 400px){.grid.half.collapse-xs{grid-template-columns:1fr}}#content{flex:1 0 auto}body.flexbox{display:flex;flex-direction:column;align-items:stretch;height:100%;min-height:100%;max-height:100%;overflow:hidden}body.flexbox #content{flex:1;display:flex;min-height:0}.flex-fill{display:flex;align-items:stretch;min-height:0;max-width:100%;position:relative}.flex-container-row{display:flex;flex-direction:row}.flex-container-row.v-center{align-items:center}.flex-container-column{display:flex;flex-direction:column}.flex-container-column.wrap,.flex-container-row.wrap{flex-wrap:wrap}.flex{min-height:0;flex:1;max-width:100%}.flex.fit-content{flex-basis:auto;flex-grow:0}.flex-none{flex:none}.justify-flex-start{justify-content:flex-start}.justify-flex-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-space-between{justify-content:space-between}.items-center{align-items:center}.block{display:block !important;position:relative}.inline{display:inline !important}.block.inline{display:inline-block !important}.relative{position:relative}.hidden{display:none !important}.fill-height{height:100%}.float{float:left}.float.right{float:right}@media screen and (max-width: 360px){.hide-under-xxs{display:none !important}}@media screen and (min-width: 360px){.hide-over-xxs{display:none !important}}@media screen and (max-width: 400px){.hide-under-xs{display:none !important}}@media screen and (min-width: 400px){.hide-over-xs{display:none !important}}@media screen and (max-width: 600px){.hide-under-s{display:none !important}}@media screen and (min-width: 600px){.hide-over-s{display:none !important}}@media screen and (max-width: 880px){.hide-under-m{display:none !important}}@media screen and (min-width: 880px){.hide-over-m{display:none !important}}@media screen and (max-width: 1000px){.hide-under-l{display:none !important}}@media screen and (min-width: 1000px){.hide-over-l{display:none !important}}@media screen and (max-width: 1100px){.hide-under-xl{display:none !important}}@media screen and (min-width: 1100px){.hide-over-xl{display:none !important}}.rounded{border-radius:4px}.dual-column-content{columns:2}@media screen and (max-width: 880px){.dual-column-content{columns:1}}.clearfix::before,.clearfix::after{content:" ";display:table}.clearfix::after{clear:both}.tri-layout-container{display:grid;margin-inline-start:32px;margin-inline-end:32px;grid-template-columns:1fr 4fr 1fr;grid-template-areas:"a b c";grid-column-gap:48px}.tri-layout-container .tri-layout-right{grid-area:c;min-width:0}.tri-layout-container .tri-layout-left{grid-area:a;min-width:0}.tri-layout-container .tri-layout-middle{grid-area:b;padding-top:16px;min-width:0}@media screen and (max-width: 1400px){.tri-layout-container{grid-template-areas:"c b b" "a b b" ". b b";grid-template-columns:1fr 3fr;grid-template-rows:min-content min-content 1fr;padding-inline-end:24px}}@media screen and (min-width: 1000px)and (max-width: 1400px){.tri-layout-left{position:sticky;top:16px}}@media screen and (min-width: 1400px){.tri-layout-left-contents,.tri-layout-right-contents{padding:32px 16px;position:sticky;top:0;max-height:100vh;min-height:50vh;overflow-y:scroll;overflow-x:hidden;height:100%;scrollbar-width:none;-ms-overflow-style:none}.tri-layout-left-contents::-webkit-scrollbar,.tri-layout-right-contents::-webkit-scrollbar{display:none}.tri-layout-middle-contents{max-width:940px;margin:0 auto}}@media screen and (max-width: 1000px){.tri-layout-container{grid-template-areas:none;grid-template-columns:1fr;grid-column-gap:0;padding-inline-end:6px;padding-inline-start:6px}.tri-layout-container .tri-layout-left-contents,.tri-layout-container .tri-layout-right-contents{padding-inline-start:16px;padding-inline-end:16px}.tri-layout-container .tri-layout-left>*,.tri-layout-container .tri-layout-right>*{display:none;pointer-events:none}.tri-layout-container .tri-layout-left,.tri-layout-container .tri-layout-right{grid-area:none;grid-column:1/1;grid-row:1;padding-top:0 !important}.tri-layout-container .tri-layout-middle{grid-area:none;grid-row:3;grid-column:1/1;z-index:1;overflow:hidden;transition:transform ease-in-out 240ms}.tri-layout-container .tri-layout-left{grid-row:2}.tri-layout-container.show-info{overflow:hidden}.tri-layout-container.show-info .tri-layout-middle{display:none}.tri-layout-container.show-info .tri-layout-right>*,.tri-layout-container.show-info .tri-layout-left>*{display:block;pointer-events:auto}}@media screen and (min-width: 1000px){.tri-layout-mobile-tabs{display:none}.tri-layout-left-contents>*,.tri-layout-right-contents>*{opacity:.6;transition:opacity ease-in-out 120ms}html.dark-mode .tri-layout-left-contents>*,html.dark-mode .tri-layout-right-contents>*{opacity:.7}.tri-layout-left-contents>*:hover,.tri-layout-left-contents>*:focus-within,.tri-layout-right-contents>*:hover,.tri-layout-right-contents>*:focus-within{opacity:1 !important}}@media screen and (min-width: 1000px)and (prefers-contrast: more){.tri-layout-left-contents>*,.tri-layout-right-contents>*{opacity:1 !important}}@media screen and (max-width: 880px){.tri-layout-container{margin-inline-start:0;margin-inline-end:0}}.callout{border-inline-start:3px solid #bbb;background-color:#eee;padding:12px 12px 12px 32px;display:block;position:relative;overflow:auto}.callout:before{background-image:url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9IiMwMTUzODAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+ICAgIDxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz4gICAgPHBhdGggZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6bTEgMTVoLTJ2LTZoMnY2em0wLThoLTJWN2gydjJ6Ii8+PC9zdmc+");background-repeat:no-repeat;content:"";width:1.2em;height:1.2em;left:8px;top:50%;margin-top:-9px;display:inline-block;position:absolute;line-height:1;opacity:.8}.callout.success{border-left-color:#0f7d15;background-color:#eafdeb;color:#063409}html.dark-mode .callout.success{background-color:#031904}html.dark-mode .callout.success{color:#129419}.callout.success:before{background-image:url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9IiMzNzZjMzkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+ICAgIDxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz4gICAgPHBhdGggZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6bS0yIDE1bC01LTUgMS40MS0xLjQxTDEwIDE0LjE3bDcuNTktNy41OUwxOSA4bC05IDl6Ii8+PC9zdmc+")}.callout.danger{border-left-color:#ab0f0e;background-color:#fcdbdb;color:#4d0706}html.dark-mode .callout.danger{background-color:#1e0302}html.dark-mode .callout.danger{color:#c31110}.callout.danger:before{background-image:url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9IiNiOTE4MTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+ICAgIDxwYXRoIGQ9Ik0xNS43MyAzSDguMjdMMyA4LjI3djcuNDZMOC4yNyAyMWg3LjQ2TDIxIDE1LjczVjguMjdMMTUuNzMgM3pNMTIgMTcuM2MtLjcyIDAtMS4zLS41OC0xLjMtMS4zIDAtLjcyLjU4LTEuMyAxLjMtMS4zLjcyIDAgMS4zLjU4IDEuMyAxLjMgMCAuNzItLjU4IDEuMy0xLjMgMS4zem0xLTQuM2gtMlY3aDJ2NnoiLz4gICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPjwvc3ZnPg==")}.callout.info{border-left-color:#0288d1;color:#01466c;background-color:#d3efff}html.dark-mode .callout.info{color:#09a7fd}html.dark-mode .callout.info{background-color:#001520}.callout.warning{border-left-color:#cf4d03;background-color:#fee3d3;color:#6a2802}html.dark-mode .callout.warning{background-color:#1a0a00}html.dark-mode .callout.warning{color:#cf4d03}.callout.warning:before{background-image:url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9IiNiNjUzMWMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+ICAgIDxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz4gICAgPHBhdGggZD0iTTEgMjFoMjJMMTIgMiAxIDIxem0xMi0zaC0ydi0yaDJ2MnptMC00aC0ydi00aDJ2NHoiLz48L3N2Zz4=")}.callout a{color:inherit;text-decoration:underline}.card{background-color:#fff;box-shadow:0 1px 6px -1px rgba(0,0,0,.1);border-radius:3px}html.dark-mode .card{background-color:#222}.card .body,.card p.empty-text{padding:16px}.card a,.card p{word-wrap:break-word;word-break:break-word}.card-title{padding:16px 16px 6px;margin:0;font-size:14px;color:#222;fill:#222;font-weight:400}.card-title a{line-height:1}.card-footer-link{display:block;padding:12px 16px;line-height:1;border-top:1px solid;border-color:#ddd;border-radius:0 0 3px 3px;font-size:.9em;margin-top:6px}html.dark-mode .card-footer-link{border-color:#555}.card-footer-link:hover{text-decoration:none;background-color:#f2f2f2}html.dark-mode .card-footer-link:hover{background-color:#2d2d2d}.card.border-card{border:1px solid #ddd}.card.drag-card{border:1px solid #ddd;border-color:#ddd;background-color:#fff;border-radius:4px;display:flex;padding:0 0 0 40px;margin:12px 0;position:relative}html.dark-mode .card.drag-card{border-color:#000}html.dark-mode .card.drag-card{background-color:#333}.card.drag-card .drag-card-action{cursor:pointer}.card.drag-card .handle,.card.drag-card .drag-card-action{display:flex;align-items:center;text-align:center;justify-content:center;width:28px;flex-grow:0;padding:0 6px}.card.drag-card .handle:hover,.card.drag-card .drag-card-action:hover{background-color:#eee}.card.drag-card .handle .svg-icon,.card.drag-card .drag-card-action .svg-icon{margin-inline-end:0px}.card.drag-card .outline input{margin:12px 0;width:100%}.card.drag-card .outline{position:relative}.card.drag-card .handle{background-color:#eee;left:0;position:absolute;top:0;bottom:0}html.dark-mode .card.drag-card .handle{background-color:#2d2d2d}.card.drag-card>div{padding:0 12px;max-width:80%;flex:1}.grid-card{display:flex;flex-direction:column;border:1px solid #ddd;border-color:#ddd;margin-bottom:24px;border-radius:4px;overflow:hidden;min-width:100px;color:#444;transition:border-color ease-in-out 120ms,box-shadow ease-in-out 120ms}html.dark-mode .grid-card{border-color:#000}.grid-card:hover{color:#444;text-decoration:none;box-shadow:0 1px 6px -1px rgba(0,0,0,.1)}html.dark-mode .grid-card:hover{box-shadow:0 1px 6px -1px rgba(0,0,0,.5)}.grid-card h2{width:100%;font-size:1.5em;margin:0 0 10px}.grid-card p{font-size:.7rem;margin:0;line-height:1.6em}.grid-card .grid-card-content{flex:1;border-top:0;border-bottom-width:2px}.grid-card .grid-card-content,.grid-card .grid-card-footer{padding:24px}.grid-card .grid-card-content+.grid-card-footer{padding-top:0}.book-grid-item .grid-card-footer p.small{font-size:.8em;margin:0}.content-wrap.card{padding:16px 48px;margin-inline-start:auto;margin-inline-end:auto;margin-bottom:24px;overflow:initial;min-height:60vh}.content-wrap.card.auto-height{min-height:0}.content-wrap.card.fill-width{width:100%}@media screen and (max-width: 1400px){.content-wrap.card{padding:16px 32px}}@media screen and (max-width: 880px){.content-wrap.card{padding:16px 24px}}@media screen and (max-width: 600px){.content-wrap.card{padding:16px 16px}}.outline-hover{border:1px solid rgba(0,0,0,0) !important}.outline-hover:hover{border:1px solid rgba(0,0,0,.1) !important}.fade-in-when-active{opacity:.6;transition:opacity ease-in-out 120ms}html.dark-mode .fade-in-when-active{opacity:.7}.fade-in-when-active:hover,.fade-in-when-active:focus-within{opacity:1 !important}@media(prefers-contrast: more){.fade-in-when-active{opacity:1 !important}}.tag-item{display:inline-flex;margin-bottom:6px;margin-inline-end:6px;border-radius:4px;border:1px solid;overflow:hidden;font-size:.85em;border-color:#ccc}html.dark-mode .tag-item{border-color:#666}.tag-item a,.tag-item span,.tag-item a:hover,.tag-item a:active{padding:4px 8px;color:rgba(0,0,0,.7);transition:background-color ease-in-out 80ms;text-decoration:none}html.dark-mode .tag-item a,html.dark-mode .tag-item span,html.dark-mode .tag-item a:hover,html.dark-mode .tag-item a:active{color:rgba(255,255,255,.8)}.tag-item a:hover{background-color:rgba(255,255,255,.7)}html.dark-mode .tag-item a:hover{background-color:rgba(255,255,255,.3)}.tag-item svg{fill:rgba(0,0,0,.5)}html.dark-mode .tag-item svg{fill:rgba(255,255,255,.5)}.tag-item .tag-value{border-inline-start:1px solid;border-color:#ddd;background-color:rgba(255,255,255,.5)}html.dark-mode .tag-item .tag-value{border-color:#666}html.dark-mode .tag-item .tag-value{background-color:rgba(255,255,255,.2)}.tag-name.highlight,.tag-value.highlight{font-weight:bold}.tag-list div:last-child .tag-item{margin-bottom:0}td .tag-item{margin-bottom:0}.pill{display:inline-block;border:1px solid currentColor;padding:.2em .8em;font-size:.8em;border-radius:1rem;position:relative;overflow:hidden;line-height:1.4}.pill:before{content:"";background-color:currentColor;position:absolute;top:0;left:0;width:100%;height:100%;opacity:.1}.api-method{font-size:.75rem;background-color:#888;padding:6px;line-height:1.3;opacity:.7;vertical-align:top;border-radius:3px;color:#fff;display:inline-block;min-width:60px;text-align:center;font-weight:bold}.api-method[data-method=GET]{background-color:#077b70}.api-method[data-method=POST]{background-color:#cf4d03}.api-method[data-method=PUT]{background-color:#0288d1}.api-method[data-method=DELETE]{background-color:#ab0f0e}.sticky-sidebar{position:sticky;top:16px;max-height:calc(100vh - 16px);overflow-y:auto}table{min-width:100px;max-width:100%}table thead{background-color:#f8f8f8;font-weight:500}html.dark-mode table thead{background-color:#333}table td,table th{min-width:10px;padding:6px 8px;border:1px solid #ddd;overflow:auto;line-height:1.2;word-break:break-word}table td p,table th p{margin:0}table.table{width:100%}table.table tr td,table.table tr th{border-bottom:1px solid rgba(0,0,0,.05)}table.table th,table.table td{text-align:start;border:none;padding:12px 12px;vertical-align:middle;margin:0;overflow:visible}table.table th{font-weight:bold}table.table tr:hover{background-color:#f2f2f2}html.dark-mode table.table tr:hover{background-color:#333}table.table .text-right{text-align:end}table.table .text-center{text-align:center}table.table td.actions{overflow:visible}table.table a{display:inline-block}table.table.expand-to-padding{margin-left:-12px;margin-right:-12px;width:calc(100% + (2*12px));max-width:calc(100% + (2*12px))}table.no-style td{border:0;padding:0}table.list-table{margin:-6px}table.list-table td{border:0;vertical-align:middle;padding:6px}.book-contents .entity-list-item .icon{width:4px;border-radius:1px;justify-self:stretch;align-self:stretch;height:auto;margin-inline-end:6px}.book-contents .entity-list-item .icon:after{opacity:.5}.book-contents .entity-list-item .icon svg{display:none}.book-contents .entity-list-item p{margin-bottom:0}.book-contents .entity-list-item .inner-page{padding-top:0;padding-bottom:0}.entity-list-item+.chapter-expansion{display:flex;padding:0 16px 16px 16px;align-items:center;border:0;width:100%;position:relative}.entity-list-item+.chapter-expansion>.icon{width:4px;height:auto;border-radius:0 0 1px 1px;align-self:stretch;flex-shrink:0}.entity-list-item+.chapter-expansion>.icon:before{position:absolute;top:0;left:0;width:100%;height:1px;background-color:currentColor;content:"";opacity:.5}.entity-list-item+.chapter-expansion>.icon:after{opacity:.5}.entity-list-item+.chapter-expansion .icon svg{display:none}.entity-list-item+.chapter-expansion>.content{flex:1}.entity-list-item+.chapter-expansion .chapter-contents-toggle{border-radius:0 4px 4px 0;padding:6px 19px;width:100%;text-align:start}.entity-list-item+.chapter-expansion .chapter-contents-toggle:hover{background-color:rgba(0,0,0,.06)}.entity-list-item.has-children{padding-bottom:0}.entity-list-item.has-children>.icon{border-radius:4px 4px 0 0}.inset-list{display:none}.inset-list .entity-list-item-name{font-size:1rem}.inset-list .entity-list-item-children{padding-top:0;padding-bottom:0}.sidebar-page-nav{list-style:none;margin-block-start:12px;margin-block-end:16px;margin-inline-start:6px;margin-inline-end:0;position:relative}.sidebar-page-nav:after{content:"";display:block;position:absolute;left:0;background-color:rgba(0,0,0,.2);width:2px;top:5px;bottom:5px;z-index:0}html[dir=rtl] .sidebar-page-nav:after{left:auto;right:0}html.dark-mode .sidebar-page-nav:after{background-color:rgba(255,255,255,.2)}.sidebar-page-nav li{margin-bottom:4px;font-size:.95em;position:relative}.sidebar-page-nav .h1{padding-inline-start:16px}.sidebar-page-nav .h2{padding-inline-start:24px}.sidebar-page-nav .h3{padding-inline-start:32px}.sidebar-page-nav .h4{padding-inline-start:40px}.sidebar-page-nav .h5{padding-inline-start:48px}.sidebar-page-nav .h6{padding-inline-start:56px}.sidebar-page-nav .current-heading{font-weight:bold}.sidebar-page-nav li:not(.current-heading) .sidebar-page-nav-bullet{background-color:#bbb !important}html.dark-mode .sidebar-page-nav li:not(.current-heading) .sidebar-page-nav-bullet{background-color:#666 !important}.sidebar-page-nav .sidebar-page-nav-bullet{width:6px;height:6px;position:absolute;left:-2px;top:30%;border-radius:50%;box-shadow:0 0 0 6px #f2f2f2;box-shadow:0 0 0 6px #f2f2f2;z-index:1}html.dark-mode .sidebar-page-nav .sidebar-page-nav-bullet{box-shadow:0 0 0 6px #111}html[dir=rtl] .sidebar-page-nav .sidebar-page-nav-bullet{left:auto;right:-2px}.book-tree .sidebar-page-list{list-style:none;margin-block-start:6px;margin-block-end:0;margin-inline-start:-12px;margin-inline-end:-12px;padding-inline-start:0;padding-inline-end:0}.book-tree .sidebar-page-list ul{list-style:none;padding-inline-start:1rem;padding-inline-end:0}.book-tree .sidebar-page-list .entity-list-item{padding-top:2px;padding-bottom:2px;background-clip:content-box;border-radius:0 3px 3px 0;padding-inline-end:0}.book-tree .sidebar-page-list .entity-list-item .content{width:100%;padding-top:6px;padding-bottom:6px;max-width:calc(100% - 20px)}.book-tree .sidebar-page-list .entity-list-item.selected{background-color:rgba(0,0,0,.06)}html.dark-mode .book-tree .sidebar-page-list .entity-list-item.selected{background-color:rgba(255,255,255,.06)}.book-tree .sidebar-page-list .entity-list-item.no-hover{margin-top:-6px;padding-inline-end:0}.book-tree .sidebar-page-list .entity-list-item-name{font-size:1em;margin:0;margin-inline-end:16px}.book-tree .sidebar-page-list .chapter-child-menu{font-size:.8rem;margin-top:-0.2rem;margin-inline-start:-1rem}.book-tree .sidebar-page-list .chapter-contents-toggle{display:block;width:100%;text-align:start;padding:3px 12px 6px 12px;border-radius:0 3px 3px 0;line-height:1;margin-top:-3px;margin-bottom:-3px}.book-tree .sidebar-page-list .chapter-contents-toggle:hover{background-color:rgba(0,0,0,.06)}html.dark-mode .book-tree .sidebar-page-list .chapter-contents-toggle:hover{background-color:rgba(255,255,255,.06)}.book-tree .sidebar-page-list .entity-list-item .icon{z-index:2;width:4px;height:auto;align-self:stretch;flex-shrink:0;border-radius:1px;opacity:.8}.book-tree .sidebar-page-list .entity-list-item .icon:after{opacity:1}.book-tree .sidebar-page-list .entity-list-item .icon svg{display:none}.chapter-child-menu ul.sub-menu{display:none;padding-inline-start:0;position:relative;margin-bottom:0}.sortable-page-list,.sortable-page-list ul{list-style:none}.sort-box{margin-bottom:16px;padding:16px 32px;position:relative}.sort-box::before{pointer-events:none;content:"";border-radius:4px;opacity:.5;border:2px solid var(--color-book);display:block;top:0;bottom:0;left:0;right:0;position:absolute}.sort-box-options{display:flex;flex-wrap:wrap;justify-content:space-between}.sort-box-options .button{margin-inline-start:0}.sortable-page-list{margin-inline-start:0;padding:0}.sortable-page-list .entity-list-item>span:first-child{align-self:flex-start}.sortable-page-list .sortable-selected .entity-list-item,.sortable-page-list .sortable-selected .entity-list-item:hover{outline:1px dotted var(--color-primary);background-color:var(--color-primary-light) !important}.sortable-page-list .entity-list-item>div{display:block;flex:1}.sortable-page-list>ul{margin-inline-start:0}.sortable-page-list ul{margin-bottom:16px;margin-top:0;padding-inline-start:16px}.sortable-page-list li{border:1px solid #ddd;margin-top:-1px;min-height:38px}.sortable-page-list li.text-page,.sortable-page-list li.text-chapter{border-inline-start:2px solid currentColor}.sortable-page-list li:first-child{margin-top:6px}.sortable-page-list li.placeholder{position:relative}.sortable-page-list li.placeholder:before{position:absolute}.activity-list-item{padding:12px 0;display:grid;grid-template-columns:min-content 1fr;grid-column-gap:16px;font-size:.9em}.card .activity-list-item{padding:12px 16px}.user-list-item{display:inline-grid;padding:12px;grid-template-columns:min-content 1fr;grid-column-gap:16px;font-size:.9em;align-items:center}.user-list-item>div:first-child{line-height:0}ul.pagination{display:inline-block;list-style:none;margin:16px 0;padding-inline-start:1px}ul.pagination li{float:left}ul.pagination li:first-child a,ul.pagination li:first-child span{border-radius:3px 0 0 3px}ul.pagination li:last-child a,ul.pagination li:last-child span{border-radius:0 3px 3px 0}ul.pagination a,ul.pagination span{display:block;padding:3px 12px;border:1px solid #ccc;margin-inline-start:-1px;user-select:none;color:#555;border-color:#ccc}html.dark-mode ul.pagination a,html.dark-mode ul.pagination span{color:#eee}html.dark-mode ul.pagination a,html.dark-mode ul.pagination span{border-color:#666}ul.pagination li.disabled{cursor:not-allowed}ul.pagination li.active span{color:#111;background-color:rgba(0,0,0,.05)}html.dark-mode ul.pagination li.active span{color:#eee}html.dark-mode ul.pagination li.active span{background-color:rgba(0,0,0,.5)}.compact ul.pagination{margin:0}.entity-list,.icon-list{margin:0 -16px}.entity-list h4,.icon-list h4{margin:0}.entity-list hr,.icon-list hr{margin:0}.entity-list .text-small.text-muted,.icon-list .text-small.text-muted{color:#aaa;font-size:.75em;margin-top:6px}.entity-list .text-muted p.text-muted,.icon-list .text-muted p.text-muted{margin-top:0}.entity-list .page.draft .text-page,.icon-list .page.draft .text-page{color:var(--color-page-draft);fill:var(--color-page-draft)}.entity-list>.dropdown-container,.icon-list>.dropdown-container{display:block}.icon-list hr{margin:12px 16px;max-width:140px;opacity:.25;height:1.1px}.icon-list hr+hr,.icon-list hr:first-child,.icon-list hr:last-child{display:none}.entity-list-item,.icon-list-item{padding:12px 16px;display:flex;align-items:center;gap:16px;background-color:rgba(0,0,0,0);border:0;width:100%;position:relative;word-break:break-word}.entity-list-item h4 a,.icon-list-item h4 a{color:#666}.entity-list-item>span:first-child,.icon-list-item>span:first-child{flex-basis:1.88em;flex:none}.entity-list-item>span:last-child,.icon-list-item>span:last-child{flex:1;text-align:start}.entity-list-item>.content,.icon-list-item>.content{min-width:0}.entity-list-item:not(.no-hover),.icon-list-item:not(.no-hover){cursor:pointer}.entity-list-item:not(.no-hover):hover,.icon-list-item:not(.no-hover):hover{background-color:rgba(0,0,0,.06);text-decoration:none;border-radius:4px}html.dark-mode .entity-list-item:not(.no-hover):hover,html.dark-mode .icon-list-item:not(.no-hover):hover{background-color:rgba(255,255,255,.06)}.entity-list-item.outline-hover:hover,.icon-list-item.outline-hover:hover{background-color:rgba(0,0,0,0)}.entity-list-item:focus,.icon-list-item:focus{background-color:#eee;outline:1px dotted #666;outline-offset:-2px}html.dark-mode .entity-list-item:focus,html.dark-mode .icon-list-item:focus{background-color:#222}.entity-list-item.disabled{pointer-events:none;cursor:not-allowed;opacity:.8;user-select:none;background:var(--bg-disabled)}.entity-list-item-path-sep{display:inline-block;vertical-align:top;position:relative;top:1px}.entity-list-item-path-sep svg{margin-inline-end:0}.split-icon-list-item{display:flex;align-items:center;gap:16px;background-color:rgba(0,0,0,0);border:0;width:100%;position:relative;word-break:break-word;border-radius:4px}.split-icon-list-item>a{padding:12px 16px;display:flex;align-items:center;gap:16px;flex:1}.split-icon-list-item>a:hover{text-decoration:none}.split-icon-list-item .icon{flex-basis:1.88em;flex:none}.split-icon-list-item:hover{background-color:rgba(0,0,0,.06)}html.dark-mode .split-icon-list-item:hover{background-color:rgba(255,255,255,.06)}.icon-list-item-dropdown{margin-inline-start:auto;align-self:stretch;display:flex;align-items:stretch;border-inline-start:1px solid rgba(0,0,0,.1);visibility:hidden}.split-icon-list-item:hover .icon-list-item-dropdown,.split-icon-list-item:focus-within .icon-list-item-dropdown{visibility:visible}.icon-list-item-dropdown-toggle{padding:6px;display:flex;align-items:center;cursor:pointer;color:#888}html.dark-mode .icon-list-item-dropdown-toggle{color:#999}.icon-list-item-dropdown-toggle svg{margin:0}.icon-list-item-dropdown-toggle:hover{background-color:rgba(0,0,0,.06)}html.dark-mode .icon-list-item-dropdown-toggle:hover{background-color:rgba(255,255,255,.06)}.card .entity-list-item:not(.no-hover,.book-contents .entity-list-item):hover{background-color:#f2f2f2;border-radius:0}html.dark-mode .card .entity-list-item:not(.no-hover,.book-contents .entity-list-item):hover{background-color:#2d2d2d}.card .entity-list-item .entity-list-item:hover{background-color:#eee}.entity-list-item-children{padding:16px 24px}.entity-list-item-children>div{overflow:hidden;padding:0 0 6px 0}.entity-list-item-children .entity-chip{text-overflow:ellipsis;height:2.5em;overflow:hidden;text-align:start;display:block;white-space:nowrap}.entity-list-item-children>.entity-list>.entity-list-item:last-child{margin-bottom:-6px}.entity-list-item-image{align-self:stretch;width:140px;flex:none;background-size:cover;background-position:50% 50%;border-radius:3px;position:relative;margin-inline-end:24px}.entity-list-item-image.entity-list-item-image-wide{width:220px}.entity-list-item-image .svg-icon{color:#fff;font-size:1.66rem;margin-inline-end:0;position:absolute;bottom:6px;left:6px}html.dark-mode .entity-list-item-image .svg-icon{color:rgba(255,255,255,.6)}@media screen and (max-width: 880px){.entity-list-item-image{width:80px}}.chapter>.entity-list-item-image{width:60px}.entity-list.compact{font-size:8.4px}.entity-list.compact h4,.entity-list.compact a{line-height:1.2}.entity-list.compact .entity-item-snippet{display:none}.entity-list.compact .entity-list-item p{font-size:11.2px;padding-top:6px}.entity-list.compact .entity-list-item p:empty{padding-top:0}.entity-list.compact p{margin:0}.entity-list.compact>p.empty-text{display:block;font-size:14px}.entity-list.compact hr{margin:0}@media screen and (max-width: 880px){.entity-list.compact h4{font-size:1.666em}}.entity-item-tags{font-size:.75rem;opacity:1}.entity-item-tags .primary-background-light{background:rgba(0,0,0,0)}.entity-item-tags .tag-name{background-color:rgba(0,0,0,.05)}.dropdown-container{display:inline-block;vertical-align:top;position:relative}.dropdown-menu{display:none;position:absolute;z-index:999;top:0;list-style:none;inset-inline-end:0;margin:16px 0;background-color:#fff;box-shadow:0 1px 6px 0 rgba(0,0,0,.18);border-radius:3px;min-width:180px;padding:6px 0;color:#555;fill:currentColor;text-align:start !important;max-height:500px;overflow-y:auto}html.dark-mode .dropdown-menu{background-color:#333}html.dark-mode .dropdown-menu{color:#eee}.dropdown-menu.wide{min-width:220px}.dropdown-menu .text-muted{color:#999;fill:#999}.dropdown-menu li.active a{font-weight:600}.dropdown-menu button{width:100%;text-align:start}.dropdown-menu li.border-bottom{border-bottom:1px solid #ddd}.dropdown-menu li hr{margin:6px 0}.dropdown-menu .icon-item,.dropdown-menu .text-item,.dropdown-menu .label-item{padding:8px 16px;color:#555;fill:currentColor;white-space:nowrap;line-height:1.4;cursor:pointer}html.dark-mode .dropdown-menu .icon-item,html.dark-mode .dropdown-menu .text-item,html.dark-mode .dropdown-menu .label-item{color:#eee}.dropdown-menu .icon-item:hover,.dropdown-menu .icon-item:focus,.dropdown-menu .text-item:hover,.dropdown-menu .text-item:focus,.dropdown-menu .label-item:hover,.dropdown-menu .label-item:focus{text-decoration:none;background-color:var(--color-primary-light);color:var(--color-primary)}.dropdown-menu .icon-item:focus,.dropdown-menu .text-item:focus,.dropdown-menu .label-item:focus{outline:1px solid var(--color-primary);outline-offset:-2px}.dropdown-menu .icon-item svg,.dropdown-menu .text-item svg,.dropdown-menu .label-item svg{margin-inline-end:12px;display:inline-block;width:16px}.dropdown-menu .text-item{display:block}.dropdown-menu .label-item{display:grid;align-items:center;grid-template-columns:auto min-content;gap:16px}.dropdown-menu .label-item>*:nth-child(2){opacity:.7}.dropdown-menu .label-item>*:nth-child(2):hover{opacity:1}.dropdown-menu .icon-item{display:grid;align-items:start;grid-template-columns:16px auto;gap:16px}.dropdown-menu .icon-item svg{margin-inline-end:0;margin-block-start:1px}.tri-layout-right .dropdown-menu,.tri-layout-left .dropdown-menu{inset-inline-end:6px}.featured-image-container{position:relative;overflow:hidden;min-height:140px;background-size:cover;background-position:50% 50%;transition:opacity ease-in-out 240ms}.featured-image-container a{display:block}.featured-image-container img{display:block;width:100%;max-width:100%;height:auto}.featured-image-container-wrap{position:relative}.featured-image-container-wrap .svg-icon{color:#fff;font-size:2rem;margin-inline-end:0;position:absolute;bottom:10px;left:6px}html.dark-mode .featured-image-container-wrap .svg-icon{color:rgba(255,255,255,.6)}.grid-card:hover .featured-image-container{opacity:.5}.action-link{background:rgba(0,0,0,0);border:none;color:currentColor;padding:16px 0}.active-link-list a{display:inline-block;padding:12px}.active-link-list a:not(.active){color:#444}html.dark-mode .active-link-list a:not(.active){color:#888}.active-link-list a:hover{background-color:rgba(0,0,0,.05);border-radius:4px;text-decoration:none}html.dark-mode .active-link-list a:hover{background-color:rgba(255,255,255,.05)}.active-link-list.in-sidebar a{display:block;margin-bottom:6px}.active-link-list.in-sidebar a.active{border-radius:4px;background-color:rgba(0,0,0,.05)}html.dark-mode .active-link-list.in-sidebar a.active{background-color:rgba(255,255,255,.05)}.entity-meta-item{display:flex;line-height:1.2;margin:.6em 0;align-content:start;gap:12px}.entity-meta-item a{line-height:1.2}.entity-meta-item svg{flex-shrink:0;width:1em;margin:0}.page-editor{display:flex;flex-direction:column;align-items:stretch;overflow:hidden}.page-editor .edit-area{flex:1;flex-direction:column;z-index:10}.page-editor .mce-tinymce{box-shadow:none}.page-editor .mce-top-part::before{box-shadow:none}body.tox-fullscreen .page-editor .edit-area,body.markdown-fullscreen .page-editor .edit-area{z-index:12}body.tox-fullscreen .page-editor,body.tox-fullscreen .flex-fill,body.markdown-fullscreen .page-editor,body.markdown-fullscreen .flex-fill{overflow:visible}@media screen and (max-width: 600px){.page-edit-toolbar{overflow-x:scroll;overflow-y:visible}.page-edit-toolbar .grid.third{display:block;white-space:nowrap}.page-edit-toolbar .grid.third>div{display:inline-block}}.page-save-mobile-button{position:fixed;z-index:30;border-radius:50%;width:56px;height:56px;font-size:24px;right:16px;bottom:12px;box-shadow:0 2px 2px 1px rgba(0,0,0,.13);background-color:currentColor;text-align:center}.page-save-mobile-button svg{fill:#fff;margin-inline-end:0}.draft-notification{pointer-events:none;transform:scale(0);transition:transform ease-in-out 120ms;transform-origin:50% 50%}.draft-notification.visible{transform:scale(1)}.page-style.editor{padding:0 !important}.page-content{width:100%;max-width:840px;margin:0 auto;overflow-wrap:break-word}.page-content .align-left{text-align:left}.page-content img.align-left,.page-content table.align-left{float:left !important;margin:6px 16px 16px 0}.page-content .align-right{text-align:right !important}.page-content img.align-right,.page-content table.align-right{float:right !important;margin:6px 0 6px 12px}.page-content .align-center{text-align:center}.page-content img.align-center{display:block}.page-content img.align-center,.page-content table.align-center{margin-left:auto;margin-right:auto}.page-content img{max-width:100%;height:auto}.page-content h1,.page-content h2,.page-content h3,.page-content h4,.page-content h5,.page-content h6,.page-content pre{clear:left}.page-content hr{clear:both;margin:16px 0}.page-content table{hyphens:auto;table-layout:fixed;max-width:100%;height:auto !important}.page-content ins,.page-content del{text-decoration:none}.page-content ins{background:#dbffdb}.page-content del{background:#ffecec}.page-content details{border:1px solid;border-color:#ddd;margin-bottom:1em;padding:12px}html.dark-mode .page-content details{border-color:#555}.page-content details>summary{margin-top:-12px;margin-left:-12px;margin-right:-12px;margin-bottom:-12px;font-weight:bold;background-color:#eee;padding:6px 12px}html.dark-mode .page-content details>summary{background-color:#333}.page-content details[open]>summary{margin-bottom:12px;border-bottom:1px solid;border-color:#ddd}html.dark-mode .page-content details[open]>summary{border-color:#555}.page-content details>summary+*{margin-top:.2em}.page-content details:after{content:"";display:block;clear:both}.page-content li>input[type=checkbox]{vertical-align:top;margin-top:.3em}.page-content p:empty{min-height:1.6em}.page-content.page-revision pre code{white-space:pre-wrap}.pointer-container{position:fixed;display:none;left:0;z-index:10}.pointer{border:1px solid #ccc;border-color:#ccc;display:flex;align-items:center;justify-items:center;padding:12px 12px;border-radius:4px;box-shadow:0 0 12px 1px rgba(0,0,0,.1);background-color:#fff;width:275px}html.dark-mode .pointer{border-color:#000}html.dark-mode .pointer{background-color:#333}.pointer.is-page-editable{width:328px}.pointer:before{position:absolute;left:50%;bottom:-9px;width:16px;height:16px;margin-inline-start:-8px;content:"";display:block;transform:rotate(45deg);transform-origin:50% 50%;border-block-end:1px solid #ccc;border-inline-end:1px solid #ccc;z-index:56;background-color:#fff;border-color:#ccc}html.dark-mode .pointer:before{background-color:#333}html.dark-mode .pointer:before{border-color:#000}.pointer input,.pointer button,.pointer a{position:relative;border-radius:0;height:28px;font-size:12px;vertical-align:top;padding:5px 16px}.pointer input{background-color:#fff;border:1px solid #ddd;border-color:#ddd;color:#666;width:172px;z-index:40;padding:5px 10px}html.dark-mode .pointer input{border-color:#000}.pointer span.icon{fill:#444;cursor:pointer;user-select:none;display:inline-block;line-height:1}.pointer .input-group .button{line-height:1;margin:0 0 0 -4px;box-shadow:none}.pointer a.button{margin:0}.pointer .svg-icon{width:1.2em;height:1.2em}.pointer .button{border-color:#ddd}html.dark-mode .pointer .button{border-color:#000}.floating-toolbox{border:1px solid #ddd;background-color:#fff;border-color:#ddd;right:64px;width:48px;overflow:hidden;align-items:stretch;flex-direction:row;display:flex;transition:width ease-in-out 180ms;margin-top:-1px;min-height:0}html.dark-mode .floating-toolbox{background-color:#222}html.dark-mode .floating-toolbox{border-color:#000}.floating-toolbox.open{width:480px}.floating-toolbox [toolbox-toggle] svg{transition:transform ease-in-out 180ms}.floating-toolbox [toolbox-toggle]{transition:background-color ease-in-out 180ms}.floating-toolbox.open [toolbox-toggle]{background-color:rgba(255,0,0,.29)}.floating-toolbox.open [toolbox-toggle] svg{transform:rotate(180deg)}.floating-toolbox>div{flex:1;position:relative}.floating-toolbox .tabs{display:block;border-inline-end:1px solid #ddd;border-color:#ddd;width:48px;flex:0 1 auto}html.dark-mode .floating-toolbox .tabs{border-color:#000}.floating-toolbox .tabs svg{padding:0;margin:0}.floating-toolbox .tabs>button{color:rgba(0,0,0,.5);display:block;cursor:pointer;padding:12px 16px;font-size:16px;line-height:1.6;border-bottom:1px solid rgba(255,255,255,.3)}html.dark-mode .floating-toolbox .tabs>button{color:rgba(255,255,255,.5)}.floating-toolbox.open .tabs>button.active{color:#444;background-color:rgba(0,0,0,.1)}html.dark-mode .floating-toolbox.open .tabs>button.active{color:#eee}.floating-toolbox div[toolbox-tab-content]{padding-bottom:45px;display:flex;flex:1;flex-direction:column;min-height:0;overflow-y:scroll}.floating-toolbox h4{font-size:24px;margin:16px 0 0 0;padding:0 24px 12px 24px}.floating-toolbox .tags input{max-width:100%;width:100%;min-width:50px}.floating-toolbox .tags td,.floating-toolbox .inline-start-table>div>div>div{padding-inline-end:12px;padding-top:12px;position:relative}.floating-toolbox .handle{user-select:none;cursor:move;fill:#999}.floating-toolbox form{display:flex;flex:1;flex-direction:column;overflow-y:scroll}.floating-toolbox table td,.floating-toolbox table th{overflow:visible}[toolbox-tab-content]{display:none}.suggestion-box{top:auto;margin:-4px 0 0;right:auto;left:0;padding:0}.suggestion-box li{display:block;border-bottom:1px solid #ddd}.suggestion-box li:last-child{border-bottom:0}.comments-container h5{color:#888;font-weight:normal;margin-top:.5em}.comment-editor .CodeMirror,.comment-editor .CodeMirror-scroll{min-height:175px}.mce-floatpanel[aria-label="Insert/edit media"] .mce-open{display:none}.entity-list-item>span:first-child,.icon-list-item>span:first-child,.split-icon-list-item>a>.icon,.chapter-expansion>.icon{font-size:.8rem;width:1.88em;height:1.88em;flex-shrink:0;display:flex;align-items:center;justify-content:center;text-align:center;border-radius:1em;position:relative;overflow:hidden}.entity-list-item>span:first-child svg,.icon-list-item>span:first-child svg,.split-icon-list-item>a>.icon svg,.chapter-expansion>.icon svg{margin:0;bottom:0}.entity-list-item>span:first-child:after,.icon-list-item>span:first-child:after,.split-icon-list-item>a>.icon:after,.chapter-expansion>.icon:after{content:"";position:absolute;background-color:currentColor;opacity:.2;left:0;top:0;width:100%;height:100%}.entity-chip{display:inline-block;align-items:center;justify-content:center;text-align:center;font-size:.9em;border-radius:3px;position:relative;overflow:hidden;padding:6px 12px;fill:currentColor;opacity:.85;transition:opacity ease-in-out 120ms}.entity-chip:after{content:"";position:absolute;background-color:currentColor;opacity:.15;left:0;top:0;width:100%;height:100%}.entity-chip:hover{text-decoration:none;opacity:1}@media(prefers-contrast: more){.entity-chip{opacity:1}}html,body{background-color:#fff}body{font-family:"DejaVu Sans",-apple-system,BlinkMacSystemFont,"Segoe UI","Oxygen","Ubuntu","Roboto","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;margin:0;padding:0;display:block}table{border-spacing:0;border-collapse:collapse}.page-content{overflow:hidden}pre{padding-left:12px}pre:after{display:none}pre code{white-space:pre-wrap}.page-break{page-break-after:always}@media screen{.page-break{border-top:1px solid #ddd}}ul.contents ul li{list-style:circle}.chapter-hint{color:#888;margin-top:32px}.chapter-hint+h1{margin-top:0}body.export-format-pdf{font-size:14px;line-height:1.2}body.export-format-pdf h1,body.export-format-pdf h2,body.export-format-pdf h3,body.export-format-pdf h4,body.export-format-pdf h5,body.export-format-pdf h6{line-height:1.2}body.export-format-pdf table{max-width:800px !important;font-size:.8em;width:100% !important}body.export-format-pdf table td{width:auto !important}body.export-format-pdf .page-content .float{float:none !important}body.export-format-pdf .page-content img.align-left,body.export-format-pdf .page-content img.align-right{float:none !important;clear:both;display:block}body.export-format-pdf.export-engine-dompdf .page-content a>img{max-width:700px}body.export-format-pdf.export-engine-dompdf .page-content td a>img{max-width:100%}/*# sourceMappingURL=export-styles.css.map */
+
+    </style>
+
+
+    </head>
+<body class="export export-format-html export-engine-none">
+<div class="page-content">
+    
+    <h1 style="font-size: 4.8em">API</h1>
+    <p>In folgenden Abschnitten wird die Live-API beschrieben.
+Diese Dokumentation richtet sich ausschließlich an Entwickler.
+
+Bitte kontaktieren Sie Ihren Ansprechpartner für eine Freischaltung Ihres Zugangs.</p>
+
+    <ul class="contents">
+                    <li><a href="#page-1">Allgemein</a></li>
+                                <li><a href="#page-2">Formate</a></li>
+                                <li><a href="#page-3">Authentifzierung</a></li>
+                                <li><a href="#page-40">Meta Objekt</a></li>
+                                <li><a href="#chapter-1">Methoden</a></li>
+                            <ul class="contents">
+                            <li><a href="#page-5">Meldescheine buchen</a></li>
+                            <li><a href="#page-36">Meldescheine aktualisieren</a></li>
+                            <li><a href="#page-6">Meldescheindaten abrufen</a></li>
+                            <li><a href="#page-7">Meldeschein-Kurkarte abrufen (PDF)</a></li>
+                            <li><a href="#page-8">Konfiguration abrufen</a></li>
+                            <li><a href="#page-41">Meldescheine stornieren</a></li>
+                    </ul>
+                        </ul>
+
+                        <div class="page-break"></div>
+
+
+<h1 id="page-1">Allgemein</h1>
+<p id="bkmrk-die-anwendung-verf%C3%BCg">Die Anwendung verfügt über eine Programmierbare Schnittstelle, kurz API (Application Programming Interface) genannt. Mithilfe dieser ist es möglich Informationen zwischen der Anwendung und Drittanbietern auszutauschen.</p>
+<h2 id="bkmrk-protokoll">Protokoll</h2>
+<p id="bkmrk-die-kommunikation-er">Die Kommunikation erfolgt ausschließlich über das <code class="codehilite"><span class="n">http</span></code>-Protkoll und Port <code class="codehilite"><span class="mi">443</span></code></p>
+<h2 id="bkmrk-sicherheit-und-freig">Sicherheit und Freigaben</h2>
+<p id="bkmrk-s%C3%A4mtliche-kommunikat">Sämtliche Kommunikation erfolgt über HTTPS mit einem SHA-256 RSA verschlüsselten SSL Zertifikat Sollte Ihr System hinter einer Firewall installiert sein, werden folgende Freigaben benötigt.</p>
+<ul id="bkmrk-protokoll%3A-http-port"><li>Protokoll: <code class="codehilite"><span class="n">http</span></code></li>
+<li>Port: <code class="codehilite"><span class="mi">443</span></code></li>
+<li>DNS Namen / A-Record: <code class="codehilite"><span class="n">kunden</span><span class="o">-</span><span class="n">systeme</span><span class="o">-</span><span class="mi">384614943</span><span class="p">.</span><span class="n">eu</span><span class="o">-</span><span class="n">central</span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="n">elb</span><span class="p">.</span><span class="n">amazonaws</span><span class="p">.</span><span class="n">com</span></code></li>
+</ul><h2 id="bkmrk-basis-adresse">Test / Produktiv System</h2>
+<p id="bkmrk-f%C3%BCr-die-entwicklung-">Für die Entwicklung und Testumsetzung ist ein Test-System verfügbar. Die Funktionalität beider Systeme ist diesselbe - im Testsystem können jedoch bereits Features enthalten sein, welche noch nicht im Produktivsystem vorhanden sind.<br><br></p>
+<h5 id="bkmrk-testsystem%3A">Testsystem:</h5>
+<p id="bkmrk-api-backend%3A%C2%A0-https%3A">API-Backend:  <a href="https://dev-api.meldescheine.de/api/">https://dev-api.meldescheine.de/api/</a> <br>Web-Frontend: <a href="https://dev.meldescheine.de/">https://dev.meldescheine.de/</a></p>
+<h5 id="bkmrk-produktiv-system%3A">Produktiv-System:</h5>
+<p id="bkmrk-api-backend%3A-https%3A%2F">API-Backend: <a href="https://api.meldescheine.de/api/">https://api.meldescheine.de/api/  </a><br>Web-Frontend:  <a href="https://v2.meldescheine.de/">https://v2.meldescheine.de/</a></p>
+<p id="bkmrk-zugangsdaten-f%C3%BCr-das" class="callout warning">Zugangsdaten für das Test sowie Produktivsystem weichen voneinander ab.</p>
+<h2 id="bkmrk-umstellung-von-test-">Umstellung von Test auf Produktivsystem</h2>
+<p id="bkmrk-da-beide-systeme-die">Da beide Systeme dieselben Funktionalitäten bieten, sind bei der Umstellung nach erfolgreichen Tests i.d.R.  nur folgende Parameter anzupassen:</p>
+<ul id="bkmrk-api-url-zugangsdaten"><li>API URL</li>
+<li>Zugangsdaten (Benutzername,Passwort)</li>
+<li>Tarifzuweisungen</li>
+</ul><h2 id="bkmrk-notwendige-header">HTTP-Header</h2>
+<p id="bkmrk-f%C3%BCr-die-korrekte-%C3%9Cbe">Für die korrekte Übergabe im System sind folgende Http-Header zwingend notwendig</p>
+<table id="bkmrk-name-wert-beschreibu" style="border-collapse: collapse; width: 100%;" border="1"><tbody><tr><td style="width: 25%;"><strong>Name</strong></td>
+<td style="width: 25%;"><strong>Wert</strong></td>
+<td style="width: 25%;"><strong>Beschreibung</strong></td>
+</tr><tr><td style="width: 25%;">Content-Type</td>
+<td style="width: 25%;">application/json oder application/xml   </td>
+<td style="width: 25%;">Inhalt der Anfrage, entsprechend JSON oder XML</td>
+</tr><tr><td style="width: 25%;">User-Agent</td>
+<td style="width: 25%;">beliebige Zeichenkette</td>
+<td style="width: 25%;">Eine beliebige Zeichenkette - im Idealfall übergeben Sie hier einen eindeutigen Bezeichner Ihres Systems z.B "mustermann-booking-1.0.4-x86"</td>
+</tr></tbody></table><p id="bkmrk-wenn-die-o.g.-header" class="callout info">Wenn die o.g. Header nicht übergeben werden, so werden Ihre Anfragen mit einem HTTP Error Code <code>403 "forbidden"</code> abgelehnt.</p>
+<h2 id="bkmrk-url-endung">URL Endung</h2>
+<p id="bkmrk-alle-aufrufe-einer-u">Alle Aufrufe einer URL sollten mit einem abschliessenden Slash (<code class="codehilite"><span class="o">/</span></code>) erfolgen.</p>
+<p id="bkmrk-nicht-korrekt%3A">Nicht korrekt:</p>
+<table id="bkmrk-token-erzeugen-post-" class="codehilitetable"><tbody><tr><td class="code">
+<div>
+<pre> <span class="n">Token</span> <span class="n">erzeugen</span>
+ <span class="n">POST</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="p">.</span><span class="n">meldescheine</span><span class="p">.</span><span class="n">de</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">token</span>
+</pre>
+</div>
+</td>
+</tr></tbody></table><p id="bkmrk-%C2%A0-0"> </p>
+<p id="bkmrk-korrekt%3A">Korrekt:</p>
+<pre id="bkmrk-token-erzeugen-post--0"><code class="language-"> Token erzeugen
+ POST https://api.meldescheine.de/api/token/</code></pre>                                <div class="page-break"></div>
+
+
+<h1 id="page-2">Formate</h1>
+<h2 id="bkmrk-zeichensatz-%2F-kodier">Zeichensatz / Kodierung</h2>
+<p id="bkmrk-unabh%C3%A4ngig-vom-forma">Unabhängig vom Format erfolgt die Übergabe und Rückgabe der Daten immer <code class="codehilite"><span class="n">UTF8</span></code> kodiert. Nutzt Ihre Anwendung eine andere Zeichen-Kodierung (z.B. ISO-8859-1), so müssen die Buchungs-Daten vor der Übergabe in das entsprechende Format konvertiert werden.</p>
+<h2 id="bkmrk-validierung-der-anfr">Validierung der Anfragen</h2>
+<p id="bkmrk-alle-schreibenden-an">Alle schreibenden Anfragen (z.b. das Buchen eines Meldescheins) mithilfe eines JSON-Schemas validiert, um gültigen Datenaufbau zu gewährleisten. Entsprechende Schemata sind unter den jeweiligen Punkten der Dokumentation vermerkt.</p>
+<p id="bkmrk-offizielle-dokumenta">Offizielle Dokumentation und Syntax-Erklärung unter <a href="https://json-schema.org/" target="_blank" rel="noopener">json-schema.org</a></p>
+<p class="admonition-title" id="bkmrk-info">Info</p>
+<p id="bkmrk-anfragen-in-einem-an">Anfragen in einem anderen Format (z.B.) werden <strong>ebenfalls</strong> über die Schemata geprüft, werden zurvor jedoch intern in JSON umgewandelt.</p>
+<h2 id="bkmrk-unterst%C3%BCtzte-formate">Unterstützte Formate</h2>
+<p id="bkmrk-die-schnittstelle-ka">Die Schnittstelle kann mit verschiedenen Formaten verwendet werden. Diese werden in den folgenden Punkten erläutert und es werden Besonderheiten hervorgehoben.</p>
+<p id="bkmrk-folgende-formate-wer">Folgende Formate werden unterstützt:</p>
+<div id="bkmrk-format-code-verwende">
+<div>
+<table><thead><tr><th>Format</th>
+<th>Code</th>
+<th>Verwendet</th>
+<th>URL-Parameter</th>
+</tr></thead><tbody><tr><td>JSON</td>
+<td><code class="codehilite"><span class="n">json</span></code></td>
+<td><strong>Standard</strong></td>
+<td><code class="codehilite"><span class="o">?</span><span class="n">format</span><span class="o">=</span><span class="n">json</span></code> (nicht notwendig,da Standard)</td>
+</tr><tr><td>XML</td>
+<td><code class="codehilite"><span class="n">xml</span></code></td>
+<td>explizite Angabe</td>
+<td><code class="codehilite"><span class="o">?</span><span class="n">format</span><span class="o">=</span><span class="n">xml</span></code></td>
+</tr></tbody></table></div>
+</div>
+<p id="bkmrk-json-endpunkt-aufruf">JSON Endpunkt aufrufen</p>
+<div id="bkmrk-"></div>
+<table class="codehilitetable" id="bkmrk-post-%2Fendpunkt-url-%23"><tbody><tr><td class="code">
+<div>
+<pre>POST /endpunkt-url
+<span class="c1"># oder explizit</span>
+POST /endpunkt-url?format<span class="o">=</span>json
+</pre>
+</div>
+</td>
+</tr></tbody></table><p id="bkmrk-xml-endpunkt-aufrufe">XML Endpunkt aufrufen</p>
+<div id="bkmrk--0"></div>
+<table class="codehilitetable" id="bkmrk-post-%2Fendpunk-url%3Ffo"><tbody><tr><td class="code">
+<div>
+<pre>POST /endpunk-url?format=xml
+</pre>
+</div>
+</td>
+</tr></tbody></table><p class="admonition-title" id="bkmrk-achtung">Achtung</p>
+<p id="bkmrk-der-format-parameter">Der <code class="codehilite"><span class="n">format</span></code> Parameter muss sowohl bei lesenden (<code class="codehilite"><span class="k">GET</span></code>), als bei schreibenden (<code class="codehilite"><span class="n">POST</span></code>,<code class="codehilite"><span class="n">PUT</span></code>) in als URL-Parameter übergeben werden, wenn ein anderes Format, als der Standard verwendet werden soll.</p>
+<hr id="bkmrk--1"><h2 id="bkmrk-json">JSON</h2>
+<p id="bkmrk-es-kann-nur-g%C3%BCltiger">Es kann nur gültiger JSON Syntax nach der Spezifikation angenommen werden werden. Leerstellen und/oder Zeilenumbrüche sind hierbei nicht relevant.</p>
+<div id="bkmrk--2"></div>
+<table class="codehilitetable" id="bkmrk-%7B%22a%22%3A%22b%22%2C%22c%22%3A%22d%22%7D"><tbody><tr><td class="code">
+<div>
+<pre>    <span class="p">{</span><span class="nt">"a"</span><span class="p">:</span><span class="s2">"b"</span><span class="p">,</span><span class="nt">"c"</span><span class="p">:</span><span class="s2">"d"</span><span class="p">}</span>  
+</pre>
+</div>
+</td>
+</tr></tbody></table><p id="bkmrk-ist-%C3%A4quivalent-zu%3A">ist äquivalent zu:</p>
+<div id="bkmrk--3"></div>
+<table class="codehilitetable" id="bkmrk-%7B-%22a%22%3A-%22b%22%2C-%22c%22%3A-%22d%22"><tbody><tr><td class="code">
+<div>
+<pre>    <span class="p">{</span>
+        <span class="nt">"a"</span><span class="p">:</span> <span class="s2">"b"</span><span class="p">,</span>
+        <span class="nt">"c"</span><span class="p">:</span> <span class="s2">"d"</span>
+    <span class="p">}</span>  
+</pre>
+</div>
+</td>
+</tr></tbody></table><p id="bkmrk-bibliotheken%2C-die-zu">Bibliotheken, die zur Erstellung des JSON Formats verwendet werden können, finden sich in allen gängigen Programmiersprachen sowie umgebungen, was die Implementierung vereinfacht. Eine Auflistung gängiger Bibliotheken sind unter json.org aufgelistet.</p>
+<p id="bkmrk-offizielle-spezifika">Offizielle Spezifikation und Beispiele: <a href="https://json.org/" target="_blank" rel="noopener">json.org</a></p>
+<hr id="bkmrk--4"><h2 id="bkmrk-xml">XML</h2>
+<p id="bkmrk-die-api-l%C3%A4sst-sich-e">Die API lässt sich ebenfalls über das XML-Format ansprechen. Alle URL-Endpunkte der API bleiben bestehen müssen jedoch mit dem <code class="codehilite"><span class="n">format</span></code> Parameter übergeben werden (siehe unten)</p>
+<p class="admonition-title" id="bkmrk-info-0">Info</p>
+<p id="bkmrk-sowohl-%C3%9Cbergabe%2C-als">Sowohl Übergabe, als auch Rückgabe der API werden in XML übermittelt.</p>
+<h3 id="bkmrk-url-parameter">URL Parameter</h3>
+<p id="bkmrk-um-das-xml-format-zu">Um das XML Format zu verwenden ist es notwendig hinter allen aufrufenden URLs den GET Parameter <code class="codehilite"><span class="n">format</span></code>mit dem Wert <code class="codehilite"><span class="n">xml</span></code> zu verwenden.</p>
+<p id="bkmrk-um-eine-authentizier">Um eine Authentizierung im XML-Format aufzurufen lautet die URL somit:</p>
+<p id="bkmrk-post-%2Fapi%2Ftoken%2F%3Ffor"><code class="codehilite"><span class="err">POST /api/token/?format=xml</span></code></p>
+<h3 id="bkmrk-besonderheiten-xml-f">Besonderheiten XML-Format</h3>
+<h4 id="bkmrk-root-element">Root-Element</h4>
+<p id="bkmrk-xml-dokumente-werden">XML-Dokumente werden <strong>immer</strong> mit dem Element <code class="codehilite"><span class="o">&lt;</span><span class="n">root</span><span class="o">&gt;</span></code> beginnen und entsprechend mit <code class="codehilite"><span class="o">&lt;/</span><span class="n">root</span><span class="o">&gt;</span></code> enden</p>
+<p id="bkmrk-beispiel%3A">Beispiel:</p>
+<div id="bkmrk-xml-0"><label for="__tab_1_0">XML</label>
+<div></div>
+</div>
+<div id="bkmrk--5"></div>
+<div id="bkmrk-%3Croot%3E-%3C%21---es-folgt">
+<div>
+<table class="codehilitetable"><tbody><tr><td class="code">
+<div>
+<pre> <span class="nt">&lt;root&gt;</span>
+    <span class="c">&lt;!-- Es folgt das eigentliche Dokument zur Übergabe --&gt;</span>
+ <span class="nt">&lt;/root&gt;</span>
+</pre>
+</div>
+</td>
+</tr></tbody></table></div>
+</div>
+<h4 id="bkmrk-listen-%2F-arrays">Listen / Arrays</h4>
+<p id="bkmrk-array-elemente-werde">Array Elemente werden <strong>immer</strong> mit dem Tag <code class="codehilite"><span class="o">&lt;</span><span class="n">list</span><span class="o">-</span><span class="n">item</span><span class="o">&gt;</span></code> versehen</p>
+<p id="bkmrk-beispiel%3A-%C3%9Cbergabe-e">Beispiel: Übergabe einer Liste von 3 Meldescheinen</p>
+<div id="bkmrk-xml-1"><label for="__tab_2_0">XML</label>
+<div></div>
+</div>
+<div id="bkmrk--6"></div>
+<pre id="bkmrk-%3Croot%3E-%3Cmeldescheine"><code class="language-"> &lt;root&gt;
+    &lt;meldescheine&gt;
+        &lt;list-item&gt;&lt;!-- weitere Daten --&gt;&lt;/list-item&gt;
+        &lt;list-item&gt;&lt;!-- weitere Daten --&gt;&lt;/list-item&gt;
+        &lt;list-item&gt;&lt;!-- weitere Daten --&gt;&lt;/list-item&gt;
+    &lt;/meldescheine&gt;
+    &lt;!-- weitere Daten --&gt;
+ &lt;/root&gt;</code></pre>                                <div class="page-break"></div>
+
+
+<h1 id="page-3">Authentifzierung</h1>
+<p id="bkmrk-bevor-gesicherte-anf">Bevor gesicherte Anfragen durchgeführt werden können, ist ein gültiges Authentifizierungs-Merkmal- künftig <code class="codehilite"><span class="n">Token</span></code> genannt - erforderlich. Die Authentifizierung erfolgt über API Aufruf mit Benutzername sowie Passwort-Schlüssel und gibt im Erfolgsfall ein JWT Token zurück.</p>
+<p id="bkmrk-das-token-muss-bei-a" class="callout info">Das Token muss bei allen Anfragen außer der Anmeldung übergeben werden.</p>
+<p id="bkmrk-f%C3%BCr-die-authentifzie">Für die Authentifzierung sind folgende Informationen notwendig:</p>
+<ul id="bkmrk-server-url-benutzern"><li>Server-URL</li>
+<li>Benutzername / Email</li>
+<li>Passwort</li>
+</ul><p id="bkmrk-weiterhin-werden-fol">Weiterhin werden folgende Informationen für weitere Aufrufe benötigt.</p>
+<ul id="bkmrk-gemeinde-id%28s%29-objek"><li>Gemeinde-ID(s)</li>
+<li>Objekt-ID(s)</li>
+</ul><p id="bkmrk-diese-informationen-">Diese Informationen lassen sich nach der Authentifizierung direkt über den <a href="https://api.meldescheine.de/static/docs/de/live-api/methods/get_config.html">get_config</a> Aufrufen.</p>
+<hr id="bkmrk-"><h2 id="bkmrk-token-erzeugen">Token erzeugen</h2>
+<div id="bkmrk--0"></div>
+<table id="bkmrk-post-api-%2Ftoken%2F" class="codehilitetable"><tbody><tr><td class="code">
+<div>
+<pre><span class="n">POST</span> <span class="n">api</span> <span class="o">/</span><span class="n">token</span><span class="o">/</span>
+</pre>
+</div>
+</td>
+</tr></tbody></table><div id="bkmrk-feld-datentyp-erkl%C3%A4r">
+<div>
+<table><thead><tr><th>Feld</th>
+<th>Datentyp</th>
+<th>Erklärung</th>
+</tr></thead><tbody><tr><td>username</td>
+<td>string</td>
+<td>Benutzername oder Email-Adresse</td>
+</tr><tr><td>password</td>
+<td>string</td>
+<td>das zugehörige Passwort</td>
+</tr></tbody></table></div>
+</div>
+<p id="bkmrk-besonderheit" class="admonition-title">Besonderheit</p>
+<p id="bkmrk-die-authentifzierung">Die Authentifzierung kann zusätzlich zur Übergabe als JSON oder XML ebenfalls als <code class="codehilite"><span class="n">application</span><span class="o">/</span><span class="n">x</span><span class="o">-</span><span class="n">www</span><span class="o">-</span><span class="n">form</span><span class="o">-</span><span class="n">urlencoded</span></code> übergeben. werden - eher bekannt als Formular-Daten.</p>
+<p id="bkmrk-somit-ist-eine-inter">Somit ist eine interaktive Anmeldung im System über z.B. ein HTML Formular oder eine Dritt-Anwendung möglich.</p>
+<h4 id="bkmrk-beispiele">Beispiele</h4>
+<h5 id="bkmrk-request">Request</h5>
+<div id="bkmrk-json"><label for="__tab_1_0">JSON</label>
+<div></div>
+</div>
+<div id="bkmrk-%7B-%22username%22%3A-%22m.mus">
+<table class="codehilitetable"><tbody><tr><td class="code">
+<div>
+<pre><span class="p">{</span>
+  <span class="nt">"username"</span><span class="p">:</span> <span class="s2">"m.mustermann"</span><span class="p">,</span>
+  <span class="nt">"password"</span><span class="p">:</span> <span class="s2">"5bed8a17a5f780aa3b541e41c62416a64"</span>
+<span class="p">}</span>
+</pre>
+</div>
+</td>
+</tr></tbody></table></div>
+<h5 id="bkmrk-response"><label for="__tab_1_1"></label>Response</h5>
+<div id="bkmrk-json-0">JSON</div>
+<div id="bkmrk-%7B-%22token%22%3A-%22ej0exaio">
+<table class="codehilitetable"><tbody><tr><td class="code">
+<div>
+<pre><span class="p">{</span>
+  <span class="nt">"token"</span><span class="p">:</span> <span class="s2">"eJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ...&lt;abgeschnitten&gt;"</span>
+<span class="p">}</span>
+</pre>
+</div>
+</td>
+</tr></tbody></table></div>
+<h2 id="bkmrk-token-verwenden"><label for="__tab_2_1"></label>Token verwenden</h2>
+<p id="bkmrk-das-token-wird-bei-j">Das Token wird bei jeder Abfrage im HTTP Header "<code>Authorization</code>" übergeben. Vor das im ersten Schritt erzeugte Token</p>
+<p id="bkmrk-http-header-authoriz">HTTP Header <code class="codehilite"><span class="k">Authorization</span></code><br>Prefix: <code class="codehilite"><span class="n">JWT</span></code></p>
+<p id="bkmrk-beispiel%3A">Beispiel:</p>
+<div id="bkmrk-text"><label for="__tab_3_0">Text</label>
+<div></div>
+</div>
+<div id="bkmrk-authorization%3A-jwt-e">
+<div>
+<table class="codehilitetable"><tbody><tr><td class="code">
+<div>
+<pre>Authorization: JWT eyJhbGciOiJIUzI1NiIeyJ4554dscvd499dfcc....
+</pre>
+</div>
+</td>
+</tr></tbody></table></div>
+</div>
+<p id="bkmrk-bitte-auf-das-pr%C3%A4fix" class="callout info">Bitte auf das Präfix <code class="codehilite"><span class="n">JWT</span></code> sowie die Leerstelle zwischen dem Präfix und dem eigentlich Token achten. <code class="codehilite"><span class="p">[</span><span class="n">PRÄFIX</span><span class="o">|</span><span class="n">LEERSTELLE</span><span class="o">|</span><span class="n">TOKEN</span><span class="p">]</span></code></p>
+<p id="bkmrk-%C2%A0" class="callout info">Alternativ kann das JWT Token auch als GET-Parameter "<code>jwt</code>" übergeben werden:  <code>https://.../?jwt=&lt;token&gt;</code></p>
+<h2 id="bkmrk-code-beispiele">Code-Beispiele</h2>
+<h3 id="bkmrk-token-abfragen">Token abfragen</h3>
+<div id="bkmrk-python-3"><label for="__tab_4_0">Python 3</label></div>
+<div id="bkmrk-%23-pip3-install-reque">
+<div>
+<table class="codehilitetable"><tbody><tr><td class="code">
+<div>
+<pre><span class="c1"># pip3 install requests </span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'username'</span><span class="p">:</span><span class="s1">'demo'</span><span class="p">,</span>
+    <span class="s1">'password'</span><span class="p">:</span><span class="s1">'demo'</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">'https://&lt;API_URL&gt;/api/token/'</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<span class="n">server_response_json</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="hll"><span class="n">jwt_token</span> <span class="o">=</span> <span class="n">server_response_json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'token'</span><span class="p">)</span> <span class="c1"># Aus dem server_response objekt den String-Wert aus "token" extrahieren</span>
+</span><span class="nb">print</span><span class="p">(</span><span class="n">jwt_token</span><span class="p">)</span>
+<span class="c1"># &lt;str&gt;: eJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...</span>
+</pre>
+</div>
+</td>
+</tr></tbody></table></div>
+</div>
+<h3 id="bkmrk-token-in-header-%C3%BCber">Token in Header übergeben</h3>
+<div id="bkmrk-python-3-0"><label for="__tab_5_0">Python 3</label>
+<div></div>
+</div>
+<div id="bkmrk-%23-pip3-install-reque-0">
+<div>
+<table class="codehilitetable"><tbody><tr><td class="code">
+<div>
+<pre><span class="c1"># pip3 install requests</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># Beliebige Daten</span>
+<span class="p">}</span>
+
+<span class="c1"># variable jwt_token aus vorherigem Beispiel</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+<span class="hll">  <span class="s1">'authorization'</span><span class="p">:</span> <span class="s1">'JWT </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="n">jwt_token</span> <span class="c1"># Ergibt "JWT eJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..."</span>
+</span><span class="p">}</span>
+
+<span class="c1">#Hier wird der Header mit übergeben</span>
+<span class="hll"><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">'https://&lt;API_URL&gt;/&lt;anfrage&gt;/'</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span><span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span> 
+</span><span class="n">server_response_json</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="c1"># ...</span>
+</pre>
+</div>
+</td>
+</tr></tbody></table></div>
+</div>
+<hr id="bkmrk--6"><div id="bkmrk--1"></div>
+<div id="bkmrk--2"></div>                                <div class="page-break"></div>
+
+
+<h1 id="page-40">Meta Objekt</h1>
+<p id="bkmrk-zus%C3%A4tzlich-zu-einem-">Zusätzlich zu einem passenden Auth-Token wird eine <code class="codehilite"><span class="n">meta</span></code> Objekt für alle authentifzierten Anfragen benötigt. Dieses Objekt identifiziert die Abfrage und übergibt einen Kontext für den Aufruf.</p>
+<p id="bkmrk-so-geben-gemeinde%2C-v">So geben <code class="codehilite"><span class="n">gemeinde</span></code>, und <code class="codehilite"><span class="n">objekt</span></code> an, für welche Gemeinde sowie welchen Vermieter und Objekt der Gemeinde der Aufruf verwendet wird.</p>
+<p id="bkmrk-das-meta-objekt-kann" class="callout info">Das Meta Objekt kann nicht alleine übergeben werden. Es gehört immer zu einem weiteren Aufruf (siehe entspr. Kapitel)</p>
+<h3 id="bkmrk-parameter">Parameter</h3>
+<div id="bkmrk-feld-datentyp-ben%C3%B6ti">
+<table style="height: 145px; width: 834px;"><thead><tr style="height: 29px;"><th style="height: 29px; width: 98.25px;">Feld</th>
+<th style="height: 29px; width: 75.1833px;">Datentyp</th>
+<th style="height: 29px; width: 142.35px;">benötigt</th>
+<th style="height: 29px; width: 218.533px;">Beschreibung</th>
+<th style="width: 274.683px; height: 29px;"> </th>
+</tr></thead><tbody><tr style="height: 29px;"><td style="height: 29px; width: 98.25px;">gemeinde</td>
+<td style="height: 29px; width: 75.1833px;">int</td>
+<td style="height: 29px; width: 142.35px;">true</td>
+<td style="height: 29px; width: 218.533px;">Die ID der zu buchenden Gemeinde</td>
+<td style="width: 274.683px; height: 29px;"> </td>
+</tr><tr style="height: 29px;"><td style="height: 29px; width: 98.25px;">objekt</td>
+<td style="height: 29px; width: 75.1833px;">int</td>
+<td style="height: 29px; width: 142.35px;">true</td>
+<td style="height: 29px; width: 218.533px;">Die ID des zu buchenden Vermieters</td>
+<td style="width: 274.683px; height: 29px;"> </td>
+</tr><tr style="height: 29px;"><td style="height: 29px; width: 98.25px;">requestId</td>
+<td style="height: 29px; width: 75.1833px;">string</td>
+<td style="height: 29px; width: 142.35px;">(nur wenn <code>idempotent</code>= true)</td>
+<td style="height: 29px; width: 218.533px;">Eine optionale Referenz zur Buchung</td>
+<td style="width: 274.683px; height: 29px;">Rückgabe: die übergebene Zeichekette, oder falls nicht übergeben, eine zufällig generierte Zeichenkette</td>
+</tr><tr style="height: 29px;"><td style="width: 98.25px; height: 29px;">idempotent</td>
+<td style="width: 75.1833px; height: 29px;">bool</td>
+<td style="width: 142.35px; height: 29px;">false</td>
+<td style="width: 218.533px; height: 29px;">Anfrage auf Eindeutigkeit prüfen</td>
+<td style="width: 274.683px; height: 29px;"> </td>
+</tr></tbody></table></div>
+<h3 id="bkmrk-eindeutige-anfragen-">Eindeutige Anfragen (Idempotenz)</h3>
+<p id="bkmrk-um-mehrfachbuchungen">Um Mehrfachbuchungen bei Verbindungsabbrüchen oder anderen Fehlern zu unterbinden bietet die Schnittstelle die Möglichkeit, das feld <code>idempotent</code> im Meta-Objekt zu übergeben.</p>
+<p id="bkmrk-in-verbindung-mit-de">In Verbindung mit der <code>requestId</code> ist es somit möglich, sicherzustellen, dass das  System keine Mehrfachanfragen zulässt.</p>
+<p id="bkmrk-der-erste-aufruf-ein">Der erste Aufruf eines idempotenten Requests wird normal angenommen - jede weitere Anfrage mit der gleichen Request-ID wird abgelehnt, solange das System diese Request-ID speichert.</p>
+<p id="bkmrk-gespeicherte-request" class="callout info">Gespeicherte Request-IDs verfallen nach 5 Minuten (300 Sekunden). Nach Ablauf kann die gleiche Request-ID wieder verwendet werden. Es ist jedoch immer ratsam eine neue, zufällig generierte Request-ID zu erzeugen.</p>
+<p id="bkmrk-die-request-ids-sind" class="callout info">Die Request-IDs sind immer auf den Benutzer der Anfrage bezogen eindeutig. Somit könnten  <code>user1</code> und <code>user2</code> die Request-ID <code>123-456-789</code> verwenden, ohne Fehler zu erhalten.</p>
+<p id="bkmrk-alle-anfragen-die-da" class="callout info">Alle Anfragen die das Meta-Objekt enthalten, unterstützten dieses Merkmal.</p>
+<p class="callout warning" id="bkmrk-die-request-id-wird-">Die Request-ID wird erst nach einem erfolgreich durchgeführten Vorgang auf dem Server gespeichert. Bei parallelen Anfragen besteht keine Garantie für Eindeutigkeit.</p>
+<p id="bkmrk-vorgehensweise%3A"><strong>Vorgehensweise:</strong></p>
+<ul id="bkmrk-generieren-sie%C2%A0-eine"><li>Generieren Sie  eine eindeutige Request-ID z.B. über eine uuid-Funktion z.B (<a href="https://docs.python.org/3/library/uuid.html">https://docs.python.org/3/library/uuid.html</a>)</li>
+<li>Übergeben Sie die Request-ID im Feld <code>requestId</code></li>
+<li>Setzen Sie das Merkmal <code>idempotent</code> auf <code>true</code></li>
+</ul><pre id="bkmrk-%7B-%22meta%22%3A-%7B-%22gemeind"><code class="language-JSON">{
+	"meta": {
+		"gemeinde":1,
+     	"objekt": 2049,
+		"requestId": "123-456-789",
+		"idempotent":true
+	}
+}</code></pre>
+<p id="bkmrk-wenn-sie-das-idempot" class="callout warning">Wenn Sie das <code>idempotent</code> Merkmal verwenden, ist die Übergabe des Feldes <code>requestId</code> zwingend notwendig.</p>
+<h5 id="bkmrk-%C2%A0"> </h5>
+<h3 id="bkmrk-beispiele">Beispiele</h3>
+<h5 id="bkmrk-request-0">Request</h5>
+<div id="bkmrk-"></div>
+<div id="bkmrk-json-%7B-%22meta%22%3A-%7B-%22ob">
+<div><label for="__tab_6_0">JSON</label></div>
+<pre><code class="language-json">{<br>   "meta": {<br>     "objekt": 806,<br>     "gemeinde": 1,<br>     "requestId":"abcdefg"  // In der Antwort wird der gleiche Wert wieder in "requestId" enthalten sein<br>   },<br>   //weitere Daten<br>}</code></pre>
+<div>XML</div>
+</div>
+<pre id="bkmrk-%3C%3Fxml-version%3D%221.0%22-"><code class="language-xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;meta&gt;
+    &lt;vermieter&gt;1&lt;/vermieter&gt;
+    &lt;gemeinde&gt;1&lt;/gemeinde&gt;&lt;!-- in diesem Fall wird als requestId eine zufällige Zeichenkette zurückgegeben --&gt;
+&lt;/meta&gt;
+&lt;!-- weitere Daten --&gt;</code></pre>
+<p id="bkmrk-%C2%A0-0"> </p>
+<h5 id="bkmrk-response">Response</h5>
+<p id="bkmrk-json">JSON</p>
+<pre id="bkmrk-%7B-%22meta%22%3A-%7B-%22request"><code class="language-json">{
+  "meta": {
+     "requestId": "66f81f62-0942-11eb-bd68-c04a00212a69",
+     "timestamp": "2020-10-08T10:43:56.496102",
+     "user": {
+            "id": 38,
+            "username": "DemoV",
+            "alias": "Lisa Mustermann"
+        },
+        "gemeinde": 1
+    }
+}</code></pre>
+<p id="bkmrk-%C2%A0-1"> </p>                                <div class="page-break"></div>
+<h1 id="chapter-1">Methoden</h1>
+
+<p>Im folgenden sind alle implementierten Methoden definiert.
+
+Sollten Sie Daten aus dem System benötigen, welche nicht über die Schnittstelle freigegeben werden, kontaktieren Sie bitte Ihren Ansprechpartner.</p>
+
+            <div class="page-break"></div>
+
+    <div class="chapter-hint">Methoden</div>
+
+<h1 id="page-5">Meldescheine buchen</h1>
+<div id="bkmrk-"></div>
+<table id="bkmrk-post-meldeschein%2Fbuc" class="codehilitetable"><tbody><tr><td class="code">
+<div>
+<pre>POST  import/meldeschein/buchen/
+</pre>
+</div>
+</td>
+</tr></tbody></table><p id="bkmrk-dieser-aufruf-erzeug">Dieser Aufruf erzeugt einen oder mehrere elektronischen Meldeschein im System.</p>
+<h2 id="bkmrk-allgemein">Allgemein</h2>
+<p id="bkmrk-es-ist-m%C3%B6glich-mehre">Es ist möglich mehrere Meldescheine auf einmal zu buchen, indem weitere Objekte dem <code class="codehilite"><span class="n">meldescheine</span></code> Array hinzugefügt werden.</p>
+<h2 id="bkmrk-parameter">Parameter</h2>
+<div id="bkmrk-name-datentyp-verwen">
+<div>
+<table><thead><tr><th>Name</th>
+<th>Datentyp</th>
+<th>Verwendung</th>
+</tr></thead><tbody><tr><td>meta</td>
+<td>object</td>
+<td><a title="Meta Objekt" href="https://wiki.meldescheine.de/books/api/page/meta-objekt">Meta-Objekt</a></td>
+</tr><tr><td>params</td>
+<td>object</td>
+<td>Optionale Parameter</td>
+</tr><tr><td>meldescheine</td>
+<td>array</td>
+<td>Array mit Meldescheindaten</td>
+</tr><tr><td>meldescheine[]</td>
+<td>object</td>
+<td>Die zu buchenden Daten des Meldescheins</td>
+</tr><tr><td>meldescheine[].personen</td>
+<td>array</td>
+<td>Auflistung aller Gäste</td>
+</tr><tr><td>meldescheine[].ms_type</td>
+<td>string</td>
+<td>Immer mit dem Wert "ems" zu befüllen</td>
+</tr></tbody></table></div>
+</div>
+<h3 id="bkmrk-pro-person">Pro Person</h3>
+<div id="bkmrk-name-datentyp-verwen-0">
+<div>
+<table><thead><tr><th>Name</th>
+<th>Datentyp</th>
+<th>Verwendung</th>
+</tr></thead><tbody><tr><td>meldescheine[].personen[].tarif_id</td>
+<td>int</td>
+<td>Die Tarif-ID des Gasts</td>
+</tr><tr><td>meldescheine[].personen[].gast_type</td>
+<td>string</td>
+<td>Gast-Art (<code class="codehilite"><span class="n">person</span></code>, <code class="codehilite"><span class="n">gruppe</span></code> )</td>
+</tr><tr><td>meldescheine[].personen[].arrival_date</td>
+<td>date</td>
+<td>Anreisedatum des Gasts</td>
+</tr><tr><td>meldescheine[].personen[].departure_date</td>
+<td>date</td>
+<td>Abreisedatum des Gasts</td>
+</tr></tbody></table></div>
+</div>
+<h4 id="bkmrk-einzel-person">Einzel-Person</h4>
+<div id="bkmrk-name-datentyp-verwen-1">
+<div>
+<table><thead><tr><th>Name</th>
+<th>Datentyp</th>
+<th>Verwendung</th>
+</tr></thead><tbody><tr><td>meldescheine[].personen[].*</td>
+<td>string</td>
+<td>Weitere definierte Felder. (nach Definition)</td>
+</tr></tbody></table></div>
+</div>
+<p id="bkmrk-die-definition-der-f" class="callout info">Die Definition der Felder hängt von der Gemeinde ab und können über den Aufruf <a title="Konfiguration abrufen" href="https://wiki.meldescheine.de/books/api/page/konfiguration-abrufen"><code class="codehilite"><span class="o">/</span><span class="n">get_current_user</span></code></a> abgefragt werden.</p>
+<h4 id="bkmrk-reisegruppe">Reisegruppe</h4>
+<div id="bkmrk-name-datentyp-verwen-2">
+<div></div>
+<div>
+<table><thead><tr><th>Name</th>
+<th>Datentyp</th>
+<th>Verwendung</th>
+</tr></thead><tbody><tr><td>meldescheine[].personen[].anzahl</td>
+<td>int</td>
+<td>Anzahl der Gäste</td>
+</tr></tbody></table></div>
+</div>
+<div id="bkmrk--0"></div>
+<p id="bkmrk-wenn-das-feld-meldes" class="callout warning">Wenn das Feld meldescheine[].personen[].anzahl größer 1 ist ,wird der Meldeschein als Gruppenmeldeschein verbucht. Eventuell übergebene Einzelinformationen für den Gast (Vorname,Nachname etc.) werden nicht gespeichert.</p>
+<h3 id="bkmrk-optionale-parameter-">Optionale Parameter (<code>params</code>)</h3>
+<table style="border-collapse: collapse; width: 100%; height: 47px;" border="1" id="bkmrk-name-datentyp-beschr"><tbody><tr style="height: 18px;"><td style="width: 33.3333%; height: 18px;">Name</td>
+<td style="width: 33.3333%; height: 18px;">Datentyp</td>
+<td style="width: 33.3333%; height: 18px;">Beschreibung</td>
+</tr><tr style="height: 29px;"><td style="width: 33.3333%; height: 29px;">append_pdf</td>
+<td style="width: 33.3333%; height: 29px;">bool</td>
+<td style="width: 33.3333%; height: 29px;">Für bei der Response jedem Meldeschein-Objekt den Parameter "pdf" .</td>
+</tr></tbody></table><h5 id="bkmrk-params.append_pdf"><code>params.append_pdf</code></h5>
+<p id="bkmrk-dieser-schalter%C2%A0-erm">Dieser Schalter  ermöglicht es, jedem Meldeschein-Objekt direkt das PDF anzufügen. <br>In der Server-Antwort wird das Feld <code>pdf</code> angefügt, welches den Base64-kodierten Meldescheine enthält.</p>
+<p class="callout danger" id="bkmrk-das-aktivieren-diese">Das aktivieren dieses Schalters gilt als Druckvorgang und wird entsprechend protokolliert - siehe Erklärung <a title="Meldeschein-Kurkarte abrufen (PDF)" href="https://wiki.meldescheine.de/books/api/page/meldeschein-kurkarte-abrufen-%28pdf%29">hier</a>.</p>
+<h5 id="bkmrk-beispiel">Beispiel</h5>
+<pre id="bkmrk-%7B-%22meta%22%3A-%7B-%22gemeind"><code class="language-JSON">{
+	"meta": {
+		"gemeinde": 1,
+		"requestId": "123-456-789",
+		"idempotent": true,
+		"objekt": 2049
+	},
+	"params": {
+		"append_pdf": true
+	},
+    ....
+ }</code></pre>
+<pre id="bkmrk-%7B-%22meta%22%3A-%7B-%22gemeind-0"><code class="language-JSON">{
+    "meta": {
+        "gemeinde": 1,
+        "requestId": "123-456-789",
+        "idempotent": true,
+        "objekt": 2049,
+        "timestamp": "2020-12-18T11:51:41.154820",
+        "user": {
+            "id": 38,
+            "username": "DemoV",
+            "alias": "Lisa Mustermann"
+        }
+    },
+    "status": "success",
+    "meldescheine": [
+        {
+            "meldeschein": {
+                "id": 28,
+             	//....
+            },
+            "id": 28,
+            "pdf": "JVBERi0xLjMKMSAwIG9iago8PAov....." 
+        }
+    ]
+}</code></pre>
+<h2 id="bkmrk-server-antwort">Server Antwort</h2>
+<p id="bkmrk-die-serverantwort-gi">Die Serverantwort gibt im Erfolgsfall ein Array aus <code class="codehilite"><span class="n">meldeschein</span></code> Objekten mit der dem gesamten Meldeschein-Objekt zurück.</p>
+<p id="bkmrk-%21%21-info-der-r%C3%BCckgabe" class="callout warning">Der Anwort-Aufbau entspricht dem aus dem Meldeschein aktuaklisieren <a title="Meldescheindaten abrufen" href="https://wiki.meldescheine.de/books/api/page/meldescheindaten-abrufen">/get</a> Aufruf</p>
+<p id="bkmrk-die-reihenfolge-der-" class="callout info">Die Reihenfolge der Personen ist zwischen Anfrage und Antwort immer gleichbleibend. Somit können Sie die  die ID's der Personen in Ihrem System für spätere Aktualisierungen mitführen</p>
+<p id="bkmrk-response%3A">Response:</p>
+<div id="bkmrk-json-%7B-%22meta%22%3A-%7B-%22re"><label for="__tab_1_0">JSON</label>
+<pre><code class="language-JSON">{<br>  "meta": {<br>    "requestId": "5ca0b885-11e3-4abd-9e60-cb8265ea9899",<br>    "timestamp": "2019-10-24T14:06:10.673840",<br>    "user": {<br>      "id": 14,<br>      "username": "api_demo",<br>      "first_name": "API",<br>      "last_name": "Demo",<br>      "email": "api_demo@apidemo.de",<br>      "is_active": true,<br>      "user_type": "beherberger",<br>      "alias": "API Demo",<br>      "last_login": "2019-10-24T11:35:18.015947+02:00"<br>    },<br>    "gemeinde": 1<br>  },<br>  "status": "success",<br>  "meldescheine": [<br>    {<br>      "id": 396,<br>      //.....<br>      "personen": [<br>        {<br>          "id":3334,<br>          "tarif_id": 1,<br><br>          "Gast_Vorname": "Max",<br>          "Gast_Name": "Mustermann",<br>          "arrival_date": "2019-01-01",<br>          "departure_date": "2019-01-15"<br>        }<br>      ]<br>    }<br>  ]<br>}</code></pre>
+</div>
+<div id="bkmrk--1"></div>
+<div id="bkmrk--2"></div>
+<h2 id="bkmrk-beispiel-buchungen">Beispiel-Buchungen</h2>
+<p id="bkmrk-beispiele-f%C3%BCr-versch">Beispiele für verschiedene Szenarien</p>
+<h3 id="bkmrk-personen-meldeschein">Personen-Meldeschein</h3>
+<p id="bkmrk-folgende-beispiele-z">Folgende Beispiele zeigen jeweils die Buchung eines Scheins. Da die Rückantwort des Servers ist unabhängig des Typs immer gleich.</p>
+<p id="bkmrk-request%3A">Request:</p>
+<div id="bkmrk-json"><label for="__tab_2_0">JSON</label>
+<div></div>
+</div>
+<div id="bkmrk--3"></div>
+<div id="bkmrk-%7B-%22meta%22%3A-%7B-%22vermiet">
+<div>
+<table class="codehilitetable"><tbody><tr><td class="code">
+<div>
+<pre><span class="p">{</span>
+  <span class="nt">"meta"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">"vermieter"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">"gemeinde"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">"objekt"</span><span class="p">:</span> <span class="mi">1</span>
+  <span class="p">},</span>
+  <span class="nt">"meldescheine"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">"input_id"</span><span class="p">:</span> <span class="s2">"test-1"</span><span class="p">,</span>
+      <span class="nt">"personen"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nt">"gast_type"</span><span class="p">:</span> <span class="s2">"person"</span><span class="p">,</span>
+          <span class="nt">"tarif_id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+          <span class="nt">"Gast_Vorname"</span><span class="p">:</span> <span class="s2">"TEST_BF"</span><span class="p">,</span>
+          <span class="nt">"arrival_date"</span><span class="p">:</span> <span class="s2">"2019-07-14"</span><span class="p">,</span>
+          <span class="nt">"departure_date"</span><span class="p">:</span> <span class="s2">"2019-07-17"</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre>
+</div>
+</td>
+</tr></tbody></table></div>
+<label for="__tab_2_1">XML</label></div>
+<h3 id="bkmrk-gruppen-meldeschein">Gruppen-Meldeschein</h3>
+<p id="bkmrk-request%3A-0">Request:</p>
+<div id="bkmrk-json-0"><label for="__tab_3_0">JSON</label>
+<div></div>
+</div>
+<div id="bkmrk--4"></div>
+<div id="bkmrk-%7B-%22meta%22%3A-%7B-%22vermiet-0">
+<div>
+<table class="codehilitetable"><tbody><tr><td class="code">
+<div>
+<pre><span class="p">{</span>
+  <span class="nt">"meta"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">"vermieter"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">"gemeinde"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">"objekt"</span><span class="p">:</span> <span class="mi">1</span>
+  <span class="p">},</span>
+  <span class="nt">"meldescheine"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">"input_id"</span><span class="p">:</span> <span class="s2">"test-1"</span><span class="p">,</span>
+      <span class="nt">"personen"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nt">"gast_type"</span><span class="p">:</span> <span class="s2">"gruppe"</span><span class="p">,</span>
+          <span class="nt">"anzahl"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+          <span class="nt">"tarif_id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+          <span class="nt">"arrival_date"</span><span class="p">:</span> <span class="s2">"2019-07-14"</span><span class="p">,</span>
+          <span class="nt">"departure_date"</span><span class="p">:</span> <span class="s2">"2019-07-17"</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre>
+</div>
+</td>
+</tr></tbody></table></div>
+<label for="__tab_3_1">XML</label></div>
+<h2 id="bkmrk-code-beispiele">Code-Beispiele</h2>
+<p id="bkmrk-folgendes-beispiel-a">Folgendes Beispiel authentifiziert die Anfrage und bucht einen Meldeschein</p>
+<div id="bkmrk-python-3"><label for="__tab_4_0">Python 3</label>
+<div></div>
+</div>
+<div id="bkmrk--5"></div>
+<pre id="bkmrk-%23-%24-pip3-install-req"><code class="language-"># $ pip3 install requests
+import requests
+payload = {
+    'username':'api_demo',
+    'password':'demodemo',
+}
+
+r = requests.post('https://apiv2.meldescheine.de/api/token/',data=payload)
+server_response_json = r.json()
+
+
+jwt_token = server_response_json.get('token') # Aus dem server_response objekt den String-Wert aus "token" extrahieren
+
+# Jetzt buchen
+meldeschein_data = {} # Leer für Test
+headers = {
+ 'Authorization':  "JWT %s" % jwt_token
+}
+r = requests.post("https://apiv2.meldescheine.de/api/import/meldeschein/buchen/",data=meldeschein_data,headers=headers)
+</code></pre>            <div class="page-break"></div>
+
+    <div class="chapter-hint">Methoden</div>
+
+<h1 id="page-36">Meldescheine aktualisieren</h1>
+<p id="bkmrk-dokumentation-unvoll" class="callout danger">Dokumentation unvollständig. </p>
+<p id="bkmrk-dieser-aufruf-erzeug"><span style="color: #222222; font-size: 2.8275em; font-weight: 400;">Allgemein</span></p>
+<p id="bkmrk-dieser-aufruf-aktual">Dieser Aufruf aktualisiert einen existierenden elektronischen Meldeschein im System.</p>
+<p id="bkmrk-es-ist-m%C3%B6glich-mehre" class="callout warning">Es kann pro Aufruf immer nur ein (1) Meldeschein aktualisiert werden.<br>Wenn im unten erläuterten Array mehrere Meldescheine aufgeführt sind, wird der erste Meldeschein (Index:0) aktualisiert.</p>
+<p id="bkmrk-existierende-meldesc" class="callout info">Existierende Meldescheine müssen immer mindestens einen Gast besitzen. Es ist nicht möglich einen Meldeschein zu "leeren", indem alle Gäste gelöscht werden.</p>
+<h2 id="bkmrk-beschr%C3%A4nkungen">Beschränkungen</h2>
+<p id="bkmrk-ein-meldeschein-kann">Ein Meldeschein kann nur verändert werden, solange sich sein Status in "Entwurf" oder "gedruckt" befindet. Ist ein Meldeschein abgereist, sind keine weiteren Änderungen möglich.</p>
+<p id="bkmrk-%22abgereist%22-ist-wie-">"abgereist" ist wie folgt definiert: Alle Gäste des Meldescheins sind abgereist. Ein automatischer Prozess auf System-Ebene prüft alle aktuellen Meldescheine und Gäste anhand ihres Abreisedatums. Sind alle Gäste abgereist, so erhält der Meldeschein den Status "abgereist". Der Meldeschein gilt somit für die Gemeinde als "bereit zur Abrechnung." </p>
+<p id="bkmrk-%C3%84nderungen-an-diesen">Änderungen an diesen Meldescheinen können nur über die Gemeinde angefordert werden.</p>
+<h2 id="bkmrk-parameter">Parameter</h2>
+<pre id="bkmrk-post-import%2Fmeldesch"><code class="language-">POST import/meldeschein/aktualisieren/</code></pre>
+<div id="bkmrk-name-datentyp-verwen">
+<div>
+<table><thead><tr><th>Name</th>
+<th>Datentyp</th>
+<th>Verwendung</th>
+</tr></thead><tbody><tr><td>meta</td>
+<td>object</td>
+<td><a title="Meta Objekt" href="https://wiki.meldescheine.de/books/api/page/meta-objekt">Meta-Objekt</a></td>
+</tr><tr><td>meldescheine</td>
+<td>array</td>
+<td>Array mit Meldescheindaten</td>
+</tr><tr><td>meldescheine[]</td>
+<td>object</td>
+<td>Die zu buchenden Daten des Meldescheins</td>
+</tr><tr><td>meldescheine[].personen</td>
+<td>array</td>
+<td>Auflistung aller Gäste</td>
+</tr></tbody></table></div>
+</div>
+<p id="bkmrk-%C2%A0"> </p>
+<p id="bkmrk-der-aufbau-der-anfra" class="callout info">Der Aufbau der Anfrage entspricht exakt des Aufrufs "<a title="Meldescheine buchen" href="https://wiki.meldescheine.de/books/api/page/meldescheine-buchen">buchen</a>" mit dem Unterschied, dass im Meldeschein-Objekt die ID aus dem Aufruf "buchen" mit übergeben werden muss, um den zu aktualisierenden Meldeschein eindeutig zu identifizieren.</p>
+<p id="bkmrk-zum-aktualisieren-vo" class="callout info">Zum aktualisieren von Gästen muss das Feld "id" mit übergeben werden</p>
+<h2 id="bkmrk-server-antwort">Server Antwort</h2>
+<p id="bkmrk-die-%22aktualisieren%22-">Die "aktualisieren" Antwort enthält den aktualisieren Meldeschein als vollständiges Objekt. Die Antwort ist unabhängig der ausgeführten Aktion immer im gleichen Format und spiegelt den aktuellen Status des Meldescheins im System wider.</p>
+<p id="bkmrk-da-nur-derzeit-ein-m" class="callout info">Da nur derzeit ein Meldeschein aktualisiert werden kann, befindet sich  der aktualisierten Meldeschein im Objekt <code>response.meldescheine[0]</code></p>
+<p id="bkmrk-%C2%A0-0" class="callout warning">Die Antwort gibt den aktuellen Status des Meldescheins im System zurück - hier können Sie ggfls. prüfen, ob Änderungen erfolgreich übernommen wurden.</p>
+<pre id="bkmrk-%7B-%22meta%22%3A-%7B-%22request"><code class="language-json">{
+    "meta": {
+        "requestId": "afc8673a-2a4c-11eb-b5a3-c04a00212a69",
+        "timestamp": "2020-11-19T10:50:41.996029",
+        "user": {
+            "id": 38,
+            "username": "DemoV",
+            "alias": "Lisa Mustermann"
+        },
+        "gemeinde": 1
+    },
+    "status": "success",
+    "response": {
+        "meldescheine": [
+            {
+                "id": 688,
+                "personen": [
+                    {
+                        "id": 2015,
+                        "tarif_id": 1,
+                        "meldeschein_id": 688,
+                        "gast_type": "person",
+                        "created": "2020-11-19T10:48:47.228504+01:00",
+                        "modified": "2020-11-19T10:50:42.311202+01:00",
+                        "anzahl": 1,
+                        "arrival_date": "2019-07-14",
+                        "departure_date": "2019-07-17",
+                        "CSID": "6b59af3c-2a4c-11eb-aa07-c04a00212a69-WLclSDowcn",
+                        "kurtaxe_calc": 6.0,
+                        "Gast_Vorname": "aktualisiert?",
+                        "Gast_Name": null,
+                        "Gast_Geburtsdatum": null,
+                        "Gast_Strasse": null,
+                        "Gast_Postleitzahl": null,
+                        "Gast_Wohnort": null,
+                        "Gast_Land": null,
+                        "Gast_Email": null,
+                        "Gast_Ausweisnummer": null,
+                        "Gast_Staatsangehoerigkeit": null,
+                        "address_id": null,
+                        "address_lat": null,
+                        "address_lng": null,
+                        "address_label": null
+                    },
+                    {
+                        "id": 2016,
+                        "tarif_id": 1,
+                        "meldeschein_id": 688,
+                        "gast_type": "person",
+                        "created": "2020-11-19T10:48:47.571441+01:00",
+                        "modified": null,
+                        "anzahl": 1,
+                        "arrival_date": "2019-07-14",
+                        "departure_date": "2019-07-17",
+                        "CSID": "6b59af3c-2a4c-11eb-aa07-c04a00212a69-WLclSDowcn",
+                        "kurtaxe_calc": 6.0,
+                        "Gast_Vorname": "TEST_BF_2",
+                        "Gast_Name": null,
+                        "Gast_Geburtsdatum": null,
+                        "Gast_Strasse": null,
+                        "Gast_Postleitzahl": null,
+                        "Gast_Wohnort": null,
+                        "Gast_Land": null,
+                        "Gast_Email": null,
+                        "Gast_Ausweisnummer": null,
+                        "Gast_Staatsangehoerigkeit": null,
+                        "address_id": null,
+                        "address_lat": null,
+                        "address_lng": null,
+                        "address_label": null
+                    },
+                    {
+                        "id": 2017,
+                        "tarif_id": 1,
+                        "meldeschein_id": 688,
+                        "gast_type": "person",
+                        "created": "2020-11-19T10:48:47.611475+01:00",
+                        "modified": null,
+                        "anzahl": 1,
+                        "arrival_date": "2019-07-14",
+                        "departure_date": "2019-07-17",
+                        "CSID": "6b59af3c-2a4c-11eb-aa07-c04a00212a69-WLclSDowcn",
+                        "kurtaxe_calc": 6.0,
+                        "Gast_Vorname": "TEST_BF_3",
+                        "Gast_Name": null,
+                        "Gast_Geburtsdatum": null,
+                        "Gast_Strasse": null,
+                        "Gast_Postleitzahl": null,
+                        "Gast_Wohnort": null,
+                        "Gast_Land": null,
+                        "Gast_Email": null,
+                        "Gast_Ausweisnummer": null,
+                        "Gast_Staatsangehoerigkeit": null,
+                        "address_id": null,
+                        "address_lat": null,
+                        "address_lng": null,
+                        "address_label": null
+                    },
+                    {
+                        "id": 2018,
+                        "tarif_id": 1,
+                        "meldeschein_id": 688,
+                        "gast_type": "person",
+                        "created": "2020-11-19T10:48:47.655957+01:00",
+                        "modified": null,
+                        "anzahl": 1,
+                        "arrival_date": "2019-07-14",
+                        "departure_date": "2019-07-17",
+                        "CSID": "6b59af3c-2a4c-11eb-aa07-c04a00212a69-WLclSDowcn",
+                        "kurtaxe_calc": 6.0,
+                        "Gast_Vorname": "TEST_BF_4",
+                        "Gast_Name": null,
+                        "Gast_Geburtsdatum": null,
+                        "Gast_Strasse": null,
+                        "Gast_Postleitzahl": null,
+                        "Gast_Wohnort": null,
+                        "Gast_Land": null,
+                        "Gast_Email": null,
+                        "Gast_Ausweisnummer": null,
+                        "Gast_Staatsangehoerigkeit": null,
+                        "address_id": null,
+                        "address_lat": null,
+                        "address_lng": null,
+                        "address_label": null
+                    }
+                ],
+                "travel_span": {
+                    "arrival_date": "2019-07-14T00:00:00",
+                    "departure_date": "2019-07-17T00:00:00",
+                    "travel_days": 3,
+                    "uebernachtungen_sum": 12
+                },
+                "objekt": {
+                    "id": 2049,
+                    "beherberger_id": 13455,
+                    "beherberger": {
+                        "firma": "Ferienhof Müller",
+                        "vorname": "Melissa",
+                        "nachname": "Müller",
+                        "comment": "&lt;br&gt;",
+                        "debitor_nr": "08154711",
+                        "alias": "Ferienhof Müller (08154711)",
+                        "id": 13455,
+                        "ansprechpartner": 37,
+                        "gemeinde_id": 1
+                    },
+                    "beherberger_alias": "Ferienhof Müller (08154711)",
+                    "ortsteil": {
+                        "id": 1,
+                        "alias": "Standard",
+                        "gemeinde": 1
+                    },
+                    "created": "2020-03-30T08:34:03.052153+02:00",
+                    "modified": "2020-07-21T13:16:53.520759+02:00",
+                    "anzahl_betten": 4,
+                    "alias": "Haus Sonne",
+                    "strasse": "Edgar-Anstett-Straße 4",
+                    "plz": "66978",
+                    "ort": "Merzalben",
+                    "tarifzone": 1,
+                    "unterkunftsart": 1
+                },
+                "meldescheinnummer": "688",
+                "objekt_id": 2049,
+                "beherberger_id": 13455,
+                "verwendete_kurtaxe": 24.0,
+                "creation_user": {
+                    "id": 38,
+                    "username": "DemoV",
+                    "alias": "Lisa Mustermann"
+                },
+                "precheck_errors": [],
+                "state_display": "Entwurf",
+                "faktura_date": null,
+                "CSID": "6b59af3c-2a4c-11eb-aa07-c04a00212a69-WLclSDowcn",
+                "Form_Id": null,
+                "BatchNo": null,
+                "BatchRDate": "2020-11-19",
+                "BatchPgDta": null,
+                "BatchTrack": null,
+                "ms_type": "ems",
+                "state": "draft",
+                "created": "2020-11-19T00:00:00+01:00",
+                "modified": null,
+                "user_note": null,
+                "is_storniert": false,
+                "source": null,
+                "storno_bestaetigt": false,
+                "kurtaxe_ist": null,
+                "manueller_betrag": 0.0,
+                "kz_manueller_betrag": false,
+                "kurtaxe_calc": 24.0,
+                "stat_alter_kind_1": null,
+                "stat_alter_kind_2": null,
+                "stat_alter_kind_3": null,
+                "stat_alter_kind_4": null,
+                "invoice": null
+            }
+        ]
+    }
+}</code></pre>
+<h3 id="bkmrk-anlegen-von-zus%C3%A4tzli">Anlegen von zusätzlichen Gästen</h3>
+<p id="bkmrk-um-dem-meldeschein-w">Um dem Meldeschein weitere Gäste hinzuzufügen, können diese ohne Angabe des Feldes "id" in das "personen" Array mit übergeben werden.</p>
+<p id="bkmrk-f%C3%BCr-das-anlegen-von-" class="callout info">Für das anlegen von zusätzlichen Gästen gelten die Regeln wie beim anlegen eines Meldescheins. Die Felder "tarif_id" , "arrival_date" sowie "departure_date" sind zwingend notwendig. Zusätzliche Felder analog zum buchen Aufruf und der eingerichteten Gemeinde.</p>
+<p id="bkmrk-beispiel-request%3A-an">Beispiel-Request: Anlegen eines zusätzlichen Gastes:</p>
+<p id="bkmrk-%22max-mustermann%22tari">"Max Mustermann"<br>Tarif-ID "1" (Erwachsener)<br>Reisezeitraum: 15.10.2020 - 16.10.2020 <br>in Meldeschein 650</p>
+<pre id="bkmrk-%7B-%22meta%22%3A-%7B-%22objekt%22"><code class="language-json">{
+  "meta":  {
+    "objekt":2080,
+    "gemeinde":1,
+		"requestId":"TEST"
+  },
+  "meldescheine": [
+    {
+			"id": 650,
+			"personen":[
+				{
+					"arrival_date": "2020-10-15",
+					"departure_date":"2020-10-16",
+					"tarif_id":1,
+					"Gast_Vorname":"Max",
+					"Gast_Name":"Mustermann"
+				}
+			]
+		}
+  ]
+}</code></pre>
+<h3 id="bkmrk-aktualisieren-von-vo">Aktualisieren von vorhandenen Gästen </h3>
+<p id="bkmrk-um-g%C3%A4ste-zu-aktualis">Um Gäste zu aktualisieren, da sich z.B. Reisedaten geändert haben ist es notwendig, die "id" des Gastes mit zu übergeben.<br>Diese kann z.B. über den   "<a title="Meldescheindaten abrufen" href="https://wiki.meldescheine.de/books/api/page/meldescheindaten-abrufen">get-data</a>" Aufruf abgerufen werden oder kann beim buchen der Meldescheine sofort gespeichert werden.</p>
+<p id="bkmrk-beispiel%3A-%C3%84ndern-des">Beispiel: Ändern des im vorherigen Beispiel "Anlegen von zusätzlichen Gästen" erzeugten Gastes "Max Mustermann":.</p>
+<p id="bkmrk-in-diesem-fall-wird-">In diesem Fall wird der Reisezeitraum geändert: 16.10.2020 bis 19.10.2020 sowie der Nachname des Gastes.</p>
+<p id="bkmrk-es-werden-nur-felder" class="callout warning">Es werden nur Felder aktualisiert, die übergeben werden und im System vorhanden sind. Achten Sie daher bitte darauf, nur die notwendigen Felder zu übergeben und achten Sie auf korrekte Feldbezeichnungen </p>
+<p id="bkmrk-zu-beachten-die-id-%22" class="callout info"><strong>Zu beachten die ID "1945"  des Gastes im unteren Beispiel.</strong><br>- Wird die ID angegeben: Gast aktualisieren<br>- Keine Angabe der ID:  Gast anlegen</p>
+<pre id="bkmrk-%7B-%22meta%22%3A-%7B-%22objekt%22-0"><code class="language-json">{
+  "meta":  {
+    "objekt":2080,
+    "gemeinde":1,
+		"requestId":"TEST"
+  },
+  "meldescheine": [
+    {
+			"id": 650,
+			"personen":[
+				{
+					"id":1945, //&lt;------------------- ID des Gastes (z.B. über /get-data abgerufen
+					"arrival_date": "2020-10-16",
+					"departure_date":"2020-10-18",
+					"tarif_id":1,
+					"Gast_Vorname":"Max",
+					"Gast_Name":"Mustermann (verändert)"
+				}
+			]
+		}
+  ]
+}</code></pre>
+<p id="bkmrk-%C2%A0-2"> </p>
+<h3 id="bkmrk-l%C3%B6schen-von-vorhande">Löschen von vorhandenen Gästen</h3>
+<p id="bkmrk-hinweis-zum-aktualis" class="callout danger"><strong>Hinweis zum aktualisieren von Gästen:</strong><br>Bitte verwenden Sie immer den Ablauf "aktualisieren" um Gäste zu verändern. Bitte löschen Sie nicht alle Gäste und legen diese neu an. <br>Dies ist technisch in einem kombinierten Aufruf (s.u.) zwar möglich - jedoch erschwert dies die Nachvollziehbarkeit auf System-Ebene, da zu jedem Gast eine Historie angelegt wird.</p>
+<p id="bkmrk-g%C3%A4ste-k%C3%B6nnen-gel%C3%B6sch">Gäste können gelöscht werden, in dem diese mit ihrer ID sowie dem  Feld "delete:true" übergeben werden. </p>
+<p id="bkmrk-beispiel-request%3A-l%C3%B6">Beispiel-Request: Löschen des Gastes mit id <code>1937</code> aus Meldeschein mit ID <code>651</code></p>
+<pre id="bkmrk-%7B-%22meta%22%3A-%7B-%22objekt%22-1"><code class="language-json">{
+  "meta":  {
+    "objekt":2080,
+    "gemeinde":1,
+		"requestId":"TEST"
+  },
+  "meldescheine": [
+    {
+			"id": 651,
+			"personen":[
+				{
+					"id": 1937,
+					"delete":true  //&lt;------ Gibt an, dass der Gast beim Aufruf gelöscht werden soll
+				}
+			]
+		}
+  ]
+}</code></pre>
+<p id="bkmrk-wenn-sie-versuchen-e" class="callout warning">Wenn Sie versuchen einen Gast zu löschen, der nicht dem Schein zugeordnet ist, erhalten Sie eine entsprechende Fehlermeldung</p>
+<h3 id="bkmrk-%C2%A0-4">Verschiedene Gast-Aktionen in einem Aufruf</h3>
+<p id="bkmrk-es-ist-m%C3%B6glich-die-o">Es ist möglich die oben beschriebenen Aktionen in einem Aufruf zu kombinieren:</p>
+<p id="bkmrk-beispiel%3A">Beispiel:</p>
+<p id="bkmrk-eine-kombination-aus">Eine Kombination aus den og. Beispielen</p>
+<ul id="bkmrk-gast-1945-aktualisie"><li id="bkmrk---gast-1945-aktualis">Gast <code>1945</code> aktualisieren</li>
+<li>Gast <code>1937</code> löschen</li>
+<li>Einen neuen Gast anlegen</li>
+</ul><p id="bkmrk-%C2%A0-1"> </p>
+<pre id="bkmrk-%7B-%22meta%22%3A-%7B-%22objekt%22-2"><code class="language-json">{
+  "meta":  {
+    "objekt":2080,
+    "gemeinde":1,
+		"requestId":"TEST"
+  },
+  "meldescheine": [
+    {
+			"id": 650,
+			"personen":[
+				{
+					"id":1945,
+					"arrival_date": "2020-10-16",
+					"departure_date":"2020-10-18",
+					"tarif_id":1,
+					"Gast_Vorname":"Max",
+					"Gast_Name":"Mustermann (verändert)"
+				},
+					{
+					"id": 1937,
+					"delete":true 
+				},
+				{
+					"arrival_date": "2020-10-15",
+					"departure_date":"2020-10-16",
+					"tarif_id":1,
+					"Gast_Vorname":"Max",
+					"Gast_Name":"Mustermann"
+				}
+				
+			]
+		}
+  ]
+}</code></pre>
+<p id="bkmrk-%C2%A0-3"> </p>
+<p id="bkmrk-%C2%A0-5"> </p>
+<p id="bkmrk-%C2%A0-6"> </p>            <div class="page-break"></div>
+
+    <div class="chapter-hint">Methoden</div>
+
+<h1 id="page-6">Meldescheindaten abrufen</h1>
+<p id="bkmrk-dieser-aufruf-fr%C3%A4gt-">Dieser Aufruf frägt alle hinterlegten Daten eines oder mehrerer Meldescheine ab.</p>
+<div id="bkmrk-"></div>
+<table id="bkmrk-get-meldeschein%2Fget%2F" class="codehilitetable" style="width: 887px;"><tbody><tr><td class="code" style="width: 887px;">
+<div>
+<pre> POST  import/meldeschein/get/
+</pre>
+</div>
+</td>
+</tr></tbody></table><h2 id="bkmrk-parameter">Parameter</h2>
+<div id="bkmrk-name-datentyp-verwen">
+<div>
+<table><thead><tr><th>Name</th>
+<th>Datentyp</th>
+<th>Verwendung</th>
+</tr></thead><tbody><tr><td>meta</td>
+<td>Objekt</td>
+<td><a title="Meta Objekt" href="https://wiki.meldescheine.de/books/api/page/meta-objekt">Meta-Objekt</a></td>
+</tr><tr><td>meldescheine</td>
+<td>Array</td>
+<td>Array mit  Meldeschein-IDs</td>
+</tr></tbody></table></div>
+</div>
+<h2 id="bkmrk-beispiele">Beispiele</h2>
+<p id="bkmrk-folgendes-beispiel-r">Folgendes Beispiel ruft die Daten von zwei Meldescheinen ab.</p>
+<h5 id="bkmrk-request%3A">Request</h5>
+<div id="bkmrk-json-%7B-%22meta%22%3A-%7B-%2F%2F."><label for="__tab_1_0">JSON</label>
+<pre><code class="language-json">{<br>  "meta": {<br>  	//....<br>  },<br>  "meldescheine": [<br>    123,<br>    456<br>  ]<br>}</code></pre>
+</div>
+<div id="bkmrk--0"><br><br></div>
+<h5 id="bkmrk-response">Response</h5>
+<div id="bkmrk-json"><label for="__tab_2_0">JSON</label>
+<div></div>
+</div>
+<div id="bkmrk--1"></div>
+<div id="bkmrk-%7B-%22meta%22%3A-%7B-%22request">
+<table class="codehilitetable"><tbody><tr><td class="code">
+<div>
+<pre><span class="p">{</span>
+  <span class="nt">"meta"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">"requestId"</span><span class="p">:</span> <span class="s2">"0324b440-c0ec-4828-a13c-5b1b81797d78"</span><span class="p">,</span>
+    <span class="nt">"timestamp"</span><span class="p">:</span> <span class="s2">"2019-06-13T11:55:26.039028"</span><span class="p">,</span>
+    <span class="nt">"user"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">"id"</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+      <span class="nt">"username"</span><span class="p">:</span> <span class="s2">"demo_hotel"</span>
+    <span class="p">},</span>
+    <span class="nt">"gemeinde"</span><span class="p">:</span> <span class="mi">1</span>
+  <span class="p">},</span>
+  <span class="nt">"response"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{<br></span>      "id":123,
+      <span class="nt">"personen"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nt">"tarif_id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+          <span class="nt">"Gast_Vorname"</span><span class="p">:</span> <span class="s2">"Max"</span><span class="p">,</span>
+          <span class="nt">"Gast_Name"</span><span class="p">:</span> <span class="s2">"Mustermann"</span><span class="p">,</span>
+          <span class="nt">"arrival_date"</span><span class="p">:</span> <span class="s2">"2019-01-01"</span><span class="p">,</span>
+          <span class="nt">"departure_date"</span><span class="p">:</span> <span class="s2">"2019-01-15"</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">"id"</span><span class="p">:</span> <span class="s2">"456"</span><span class="p">,</span>
+      <span class="nt">"personen"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nt">"tarif_id"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+          <span class="nt">"anzahl"</span><span class="p">:</span> <span class="mi">12</span>
+        <span class="p">}</span>
+       //...<br><span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre>
+</div>
+</td>
+</tr><tr><td>
+<div><span class="p"> </span></div>
+</td>
+</tr></tbody></table></div>
+<p id="bkmrk-xml"><label for="__tab_2_1"> </label></p>            <div class="page-break"></div>
+
+    <div class="chapter-hint">Methoden</div>
+
+<h1 id="page-7">Meldeschein-Kurkarte abrufen (PDF)</h1>
+<p id="bkmrk-gibt-die-angefragten">Gibt die Kurkarten der angefragten Meldescheine als base64 kodiertes PDF zurück. Die Kurkarte ist druckfertig und muss i.d.R. nur noch als PDF-Datei ausgegeben und gedruckt werden.</p>
+<p id="bkmrk-vermeiden-sie-mehrfa" class="callout warning"><strong>Vermeiden Sie mehrfache Aufrufe der Schnittstelle</strong>:<br>Jede Anfrage "get-pdf" wird als Druckvorgang gewertet und entsprechend protokolliert. <br><br>Sie gilt somit als physikalischer Druck einer Kurkarte. Achten Sie daher bitte darauf, die Anfrage nur auszuführen, wenn ein Druck der Gästekarte umgehend folgt. <br><br>Sollte die PDF-Kurkarte mehrfach benötigt werden, speichern Sie bitte das PDF auf Ihrem System für eventuelle Verwendung ab.</p>
+<h2 id="bkmrk-parameter">Parameter</h2>
+<table id="bkmrk-get-import%2Fmeldesche" class="codehilitetable"><tbody><tr><td class="code">
+<div>
+<pre>POST import/meldeschein/get-pdf/
+</pre>
+</div>
+</td>
+</tr></tbody></table><div id="bkmrk-name-datentyp-verwen">
+<div>
+<div>
+<table><thead><tr><th>Name</th>
+<th>Datentyp</th>
+<th>Verwendung</th>
+</tr></thead><tbody><tr><td>meta</td>
+<td>object</td>
+<td><a title="Meta Objekt" href="https://wiki.meldescheine.de/books/api/page/meta-objekt">Meta-Objekt</a></td>
+</tr><tr><td>meldescheine</td>
+<td>array</td>
+<td>Array mit Meldeschein-IDs</td>
+</tr></tbody></table></div>
+</div>
+</div>
+<h2 id="bkmrk-beispiel-anfragen">Request</h2>
+<p id="bkmrk-folgendes-beispiel-r">Folgendes Beispiel ruft die Daten von zwei Meldescheinen ab.</p>
+<p id="bkmrk-request%3A">Request:</p>
+<div id="bkmrk-json-%7B-%22meta%22%3A-%7B-%22ob"><label for="__tab_3_0">JSON</label>
+<pre><code class="language-json">{<br>  "meta":  {<br>    "objekt": 2049,<br>    "gemeinde": 1<br>  },<br>  "meldescheine": [<br>    553<br>  ]<br>}</code></pre>
+</div>
+<div id="bkmrk-"></div>
+<h3 id="bkmrk-response%3A">Response</h3>
+<div id="bkmrk-json"><label for="__tab_4_0">JSON</label></div>
+<div id="bkmrk-%7B-%22meta%22%3A-%7B-%22request">
+<pre><code class="language-json">{
+    "meta": {
+        "requestId": "66f81f62-0942-11eb-bd68-c04a00212a69",
+        "timestamp": "2020-10-08T10:43:56.496102",
+        "user": {
+            "id": 38,
+            "username": "DemoV",
+            "alias": "Lisa Mustermann"
+        },
+        "gemeinde": 1
+    },
+    "response": [
+        {
+            "id": 553,
+            "encoding": "base64",
+            "pdf": "JVBERi0xLjMKMSAwIG9iaHMgWyAzIDAg....&lt;abgeschnitten&gt;"
+        }
+    ]
+}</code></pre>
+</div>
+<h2 id="bkmrk-pdf-dekodieren-und-s">PDF dekodieren und speichern</h2>
+<p id="bkmrk-die-r%C3%BCckgabe-des-ser">Die Rückgabe des Servers enthält die PDF-Daten als <code class="codehilite"><span class="n">base64</span></code> kodierte <code class="codehilite"><span class="n">string</span></code>-Werte in der Response. Der'Wert ist jeweil ins <code class="codehilite"><span class="n">response</span><span class="p">[].</span><span class="n">pdf</span></code> zu finden.</p>
+<div id="bkmrk-die-%C3%BCbliche-vorgehen">Die übliche Vorgehensweise ist es, den base64 kodierten Wert als PDF-Datei zu speichern und diese dann zur weiteren Verwendung zu geben (z.B. Ausdruck Kurkarte).</div>
+<div id="bkmrk--0"></div>
+<div id="bkmrk-m%C3%B6glichkeiten-base64">Möglichkeiten Base64 Zeicheketten als Binärdateien zu speichern bieten sich in vielen Programmiersprachen.</div>
+<h3 id="bkmrk-beispiele%3A">Code-Beispiele</h3>
+<div id="bkmrk-python-3"><label for="__tab_2_0">Python 3</label>
+<div></div>
+</div>
+<pre id="bkmrk-import-base64-%23-...."><code class="language-python">import base64
+
+# ....
+# Die variable Antwort des Servers ist hier in der variable "r" zu finden
+
+for ms in r['response']:
+
+  base64_string = ms.get('pdf')
+  filename =  './Beispiel-Meldeschein-%s.pdf' % ms.get('id') # Datei als "Beispiel-Meldeschein-&lt;id&gt;.pdf" speichern
+  fh = open(filename,'wb')   #lokale Datei im binären Modus zum schreiben öffnen / erstellen.
+
+  decoded = base64.decodebytes(base64_string) # Base64 String binär dekodieren
+  fh.write(decoded) #  dekodierte Daten in Datei schreiben
+  fh.close() # Datei schliessen
+  # Die Datei &lt;filename&gt; kann nun gedruckt werden</code></pre>
+<div id="bkmrk--1"></div>            <div class="page-break"></div>
+
+    <div class="chapter-hint">Methoden</div>
+
+<h1 id="page-8">Konfiguration abrufen</h1>
+<table id="bkmrk-get-get-config%2F" class="codehilitetable" style="width: 726px;"><tbody><tr><td class="code" style="width: 726px;">
+<div>
+<pre><span class="k">GET</span>  users<span class="o">/get_current_user</span>
+</pre>
+</div>
+</td>
+</tr></tbody></table><p id="bkmrk-dieser-aufruf-fr%C3%A4gt-">Dieser Aufruf frägt alle Informationen zum aktuellen Benutzer und damit verknüpften Gemeinden sowie Beherbergern.</p>
+<p id="bkmrk-das-erm%C3%B6glicht-es%2C-e">Dies ermöglicht es, in der Drittsoftware definierte Tarife, Meldeschein-Felder sowie weitere Informationen abzurufen und bereitzustellen.</p>
+<h2 id="bkmrk-parameter">Parameter</h2>
+<p id="bkmrk-keine-parameter-notw">Keine Parameter notwendig</p>
+<h2 id="bkmrk-aufbau-antwort">Aufbau Antwort</h2>
+<h3 id="bkmrk-allgemein">Allgemein</h3>
+<div id="bkmrk-feld-datentyp-erkl%C3%A4r">
+<div>
+<table><thead><tr><th>Feld</th>
+<th>Datentyp</th>
+<th>Erklärung</th>
+</tr></thead><tbody><tr><td>user.*</td>
+<td>object</td>
+<td>Informationen zum aktuell angemeldeten Benutzer (über Token)</td>
+</tr><tr><td>beherberger</td>
+<td>array</td>
+<td>Dem Account zugeordnete Vermieter</td>
+</tr><tr><td>beherberger[].*</td>
+<td>object</td>
+<td>Sämtliche Informationen zum Vermieter</td>
+</tr><tr><td>beherberger[].objekte</td>
+<td>object</td>
+<td>Alle Objekte des Vermieters, welche dem Account zugeordnet sind</td>
+</tr><tr><td>gemeinden</td>
+<td>array</td>
+<td>Alle dem Account zugeordneten Gemeinden (i.d.R. eine)</td>
+</tr><tr><td>gemeinden[].ortsteile</td>
+<td>array</td>
+<td>Alle definierten Ortsteile der Gemeinde</td>
+</tr><tr><td>gemeinden[].tarifzonen</td>
+<td>array</td>
+<td>Alle definierten Tarifzonen der Gemeinde</td>
+</tr><tr><td>gemeinden[].saisonzeiten</td>
+<td>array</td>
+<td>Alle definierten Saisonzeiten der Gemeinde</td>
+</tr><tr><td>gemeinden[].meldeschein_fields</td>
+<td>array</td>
+<td>Alle definierten Felder des Elektronischen Meldescheins</td>
+</tr></tbody></table></div>
+</div>
+<h3 id="bkmrk-meldeschein-felder">Meldeschein-Felder</h3>
+<p id="bkmrk-die-definierten-gast">Die definierten Gast/Meldescheinfelder sind unter folgendem Pfad zu finden:</p>
+<p id="bkmrk-gemeinden%5Bgemeinde_i"><code class="codehilite"><span class="n">gemeinden</span><span class="o">[</span><span class="n">GEMEINDE_ID</span><span class="o">]</span><span class="p">.</span><span class="n">meldeschein_fields</span></code>, wobei <code class="codehilite"><span class="n">GEMEINDE_ID</span></code> der jeweiligen Gemeinde entspricht</p>
+<p id="bkmrk-relevante-felder%3A">Relevante Felder:</p>
+<div id="bkmrk-feld-datentyp-erkl%C3%A4r-0">
+<div>
+<table><thead><tr><th>Feld</th>
+<th>Datentyp</th>
+<th>Erklärung</th>
+</tr></thead><tbody><tr><td>alias</td>
+<td>string</td>
+<td>Klartextbezeichnung</td>
+</tr><tr><td>column_name</td>
+<td>string</td>
+<td>Der Wert der Datenbankspalte, dieser Wert wird bei der Übergabe in <code class="codehilite"><span class="o">/</span><span class="n">buchen</span></code> benötigt</td>
+</tr><tr><td>data_type</td>
+<td>string</td>
+<td>Datentyp des Felds</td>
+</tr><tr><td>required</td>
+<td>boolean</td>
+<td>Wird der Wert bei der Buchung eines Meldescheins benötigt?</td>
+</tr></tbody></table></div>
+</div>
+<p id="bkmrk-hinweis" class="admonition-title">Hinweis</p>
+<p id="bkmrk-alle-felder-mit-requ">Alle Felder mit <code class="codehilite"><span class="n">required</span> <span class="o">=</span> <span class="k">true</span></code> müssen bei der Buchung eines Meldescheins übergeben werden</p>
+<h3 id="bkmrk-definierte-tarife%2C-s">Definierte Tarife, Saisonzeiten, Tarifzonen</h3>
+<p id="bkmrk-die-definierten-tari">Die definierten Tarife, Saisonzeiten und Tarifzonen folgen dem gleichen Aufbau</p>
+<p id="bkmrk-tarife%3A-gemeinden%5Bge">Tarife: <code class="codehilite"><span class="n">gemeinden</span><span class="o">[</span><span class="n">GEMEINDE_ID</span><span class="o">]</span><span class="p">.</span><span class="n">tarife</span></code>, wobei <code class="codehilite"><span class="n">GEMEINDE_ID</span></code> der jeweiligen Gemeinde entspricht Saisonzeiten: <code class="codehilite"><span class="n">gemeinden</span><span class="o">[</span><span class="n">GEMEINDE_ID</span><span class="o">]</span><span class="p">.</span><span class="n">saisonzeiten</span></code>, wobei <code class="codehilite"><span class="n">GEMEINDE_ID</span></code> der jeweiligen Gemeinde entspricht Tarifzonen: <code class="codehilite"><span class="n">gemeinden</span><span class="o">[</span><span class="n">GEMEINDE_ID</span><span class="o">]</span><span class="p">.</span><span class="n">tarifzonen</span></code>, wobei <code class="codehilite"><span class="n">GEMEINDE_ID</span></code> der jeweiligen Gemeinde entspricht</p>
+<h2 id="bkmrk-beispiele">Beispiele</h2>
+<p id="bkmrk-folgendes-beispiel-r">Folgendes Beispiel ruft die gesamte Konfiguration für einen Demo-Mandanten ab.</p>
+<p id="bkmrk-response%3A">Response:</p>
+<div id="bkmrk-json"><label for="__tab_1_0">JSON</label>
+<div></div>
+</div>
+<div id="bkmrk-"></div>
+<pre id="bkmrk-%7B-%22user%22%3A-%7B-%22id%22%3A-14"><code class="language-json">{
+  "user": {
+    "id": 14,
+    "username": "api_demo",
+    "first_name": "API",
+    "last_name": "Demo",
+    "email": "api_demo@apidemo.de",
+    "is_active": true,
+    "user_type": "beherberger",
+    "alias": "API Demo",
+    "last_login": "2019-10-24T11:35:18.015947+02:00"
+  },
+  "beherberger": [
+    {
+      "id": 9,
+      "objekte": [
+        {
+          "id": 9,
+          "tarifzone_id": 1,
+          "ortsteil_id": 1,
+          "beherberger_id": 9,
+          "tarifzone": {
+            "id": 1,
+            "created": "2019-08-21T15:41:56.239951+02:00",
+            "modified": "2019-08-21T15:41:56.240018+02:00",
+            "alias": "Hauptzone",
+            "gemeinde": 1
+          },
+          "ortsteil": {
+            "id": 1,
+            "created": "2019-08-21T15:42:02.596680+02:00",
+            "modified": "2019-08-21T15:42:02.596757+02:00",
+            "alias": "Fehmarn",
+            "gemeinde": 1
+          },
+          "beherberger": {
+            "firma": "DEMO",
+            "vorname": "Max",
+            "nachname": "Mustermann",
+            "comment": "",
+            "debitor_nr": null,
+            "alias": "DEMO"
+          },
+          "created": "2019-09-04T09:51:53.201523+02:00",
+          "modified": "2019-09-04T09:51:53.201585+02:00",
+          "anzahl_betten": 1,
+          "alias": "API-Objekt",
+          "strasse": "API-Strasse",
+          "plz": "86707",
+          "ort": "Westendorf"
+        }
+      ],
+      "alias": "DEMO",
+      "created": "2019-09-04T09:49:52.052348+02:00",
+      "modified": "2019-09-04T09:56:22.192552+02:00",
+      "is_active": true,
+      "firma": "DEMO",
+      "anrede": "Herr",
+      "vorname": "DEMO",
+      "nachname": "DEMO",
+      "strasse": "DEMO",
+      "plz": "123456",
+      "ort": "DEMO",
+      "telefon": "12345",
+      "email": "demo@demo.de",
+      "allow_logins": true,
+      "create_invoices": true,
+      "custom_1": null,
+      "custom_2": null,
+      "custom_3": null,
+      "custom_4": null,
+      "debitor_nr": null,
+      "vermieter_nr": "API-TEST",
+      "comment": "",
+      "gemeinde": 1
+    }
+  ],
+  "gemeinden": [
+    {
+      "id": 1,
+      "ortsteile": [
+        {
+          "id": 1,
+          "created": "2019-08-21T15:42:02.596680+02:00",
+          "modified": "2019-08-21T15:42:02.596757+02:00",
+          "alias": "Hauptbereich",
+          "gemeinde": 1
+        }
+      ],
+      "tarifzonen": [
+        {
+          "id": 1,
+          "created": "2019-08-21T15:41:56.239951+02:00",
+          "modified": "2019-08-21T15:41:56.240018+02:00",
+          "alias": "Hauptzone",
+          "gemeinde": 1
+        }
+      ],
+      "saisonzeiten": [
+        {
+          "id": 1,
+          "created": "2019-08-21T15:44:42.087596+02:00",
+          "modified": "2019-08-21T15:44:42.087663+02:00",
+          "alias": "Hauptsaison 2019",
+          "valid_from": "2019-05-15",
+          "valid_until": "2019-09-14",
+          "gemeinde": 1
+        },
+        {
+          "id": 2,
+          "created": "2019-08-22T10:11:18.114641+02:00",
+          "modified": "2019-08-22T10:11:18.114702+02:00",
+          "alias": "Nebensaison 1",
+          "valid_from": "2019-01-01",
+          "valid_until": "2019-05-14",
+          "gemeinde": 1
+        },
+        {
+          "id": 3,
+          "created": "2019-08-22T10:12:05.322441+02:00",
+          "modified": "2019-08-22T10:12:05.322534+02:00",
+          "alias": "Nebensaison 2",
+          "valid_from": "2019-09-15",
+          "valid_until": "2019-12-31",
+          "gemeinde": 1
+        }
+      ],
+      "tarife": [
+        {
+          "id": 2,
+          "full_alias": "Behinderung 80% (SB 80 %)",
+          "created": "2019-08-22T10:16:22.572120+02:00",
+          "modified": "2019-08-22T10:16:22.572201+02:00",
+          "is_active": true,
+          "tarif_code": "SB 80 %",
+          "alias": "Behinderung 80%",
+          "allow_beherberger": true,
+          "print_kurkarte": true,
+          "default_selected": false,
+          "gemeinde": 1
+        },
+        {
+          "id": 3,
+          "full_alias": "Behinderung Begleitung (SBB 80 %)",
+          "created": "2019-08-22T10:16:58.052509+02:00",
+          "modified": "2019-08-22T10:16:58.052578+02:00",
+          "is_active": true,
+          "tarif_code": "SBB 80 %",
+          "alias": "Behinderung Begleitung",
+          "allow_beherberger": true,
+          "print_kurkarte": true,
+          "default_selected": false,
+          "gemeinde": 1
+        },
+        {
+          "id": 7,
+          "full_alias": "Beruflich Anwesende (BA)",
+          "created": "2019-08-22T10:21:39.062066+02:00",
+          "modified": "2019-08-22T10:21:39.062138+02:00",
+          "is_active": true,
+          "tarif_code": "BA",
+          "alias": "Beruflich Anwesende",
+          "allow_beherberger": true,
+          "print_kurkarte": true,
+          "default_selected": false,
+          "gemeinde": 1
+        },
+        {
+          "id": 1,
+          "full_alias": "Erwachsener (EW)",
+          "created": "2019-08-21T15:43:26.469087+02:00",
+          "modified": "2019-09-05T14:54:45.644304+02:00",
+          "is_active": true,
+          "tarif_code": "EW",
+          "alias": "Erwachsener",
+          "allow_beherberger": true,
+          "print_kurkarte": true,
+          "default_selected": true,
+          "gemeinde": 1
+        },
+        {
+          "id": 5,
+          "full_alias": "Gruppen ab 25 Personen (GG)",
+          "created": "2019-08-22T10:17:47.179287+02:00",
+          "modified": "2019-08-22T10:17:47.179348+02:00",
+          "is_active": true,
+          "tarif_code": "GG",
+          "alias": "Gruppen ab 25 Personen",
+          "allow_beherberger": true,
+          "print_kurkarte": true,
+          "default_selected": false,
+          "gemeinde": 1
+        },
+        {
+          "id": 4,
+          "full_alias": "Gruppen unter 25 Personen (GK)",
+          "created": "2019-08-22T10:17:30.252887+02:00",
+          "modified": "2019-08-22T10:17:30.252952+02:00",
+          "is_active": true,
+          "tarif_code": "GK",
+          "alias": "Gruppen unter 25 Personen",
+          "allow_beherberger": true,
+          "print_kurkarte": true,
+          "default_selected": false,
+          "gemeinde": 1
+        },
+        {
+          "id": 8,
+          "full_alias": "keine Kategorie (kK)",
+          "created": "2019-08-22T10:22:02.186252+02:00",
+          "modified": "2019-08-22T10:22:02.186552+02:00",
+          "is_active": true,
+          "tarif_code": "kK",
+          "alias": "keine Kategorie",
+          "allow_beherberger": true,
+          "print_kurkarte": true,
+          "default_selected": false,
+          "gemeinde": 1
+        },
+        {
+          "id": 6,
+          "full_alias": "Kinder (Kind)",
+          "created": "2019-08-22T10:20:33.649448+02:00",
+          "modified": "2019-08-22T10:20:33.649504+02:00",
+          "is_active": true,
+          "tarif_code": "Kind",
+          "alias": "Kinder",
+          "allow_beherberger": true,
+          "print_kurkarte": true,
+          "default_selected": false,
+          "gemeinde": 1
+        }
+      ],
+      "meldeschein_fields": [
+        {
+          "id": 2,
+          "created": "2019-08-21T15:46:11.393579+02:00",
+          "modified": "2019-09-05T14:56:24.456160+02:00",
+          "alias": "Nachname",
+          "column_name": "Gast_Name",
+          "data_type": "text",
+          "size": 6,
+          "transferable": false,
+          "list_visible": true,
+          "required": true,
+          "priority": "high",
+          "view_order": 1,
+          "gemeinde": 1
+        },
+        {
+          "id": 1,
+          "created": "2019-08-21T15:45:57.452169+02:00",
+          "modified": "2019-09-05T14:56:20.478747+02:00",
+          "alias": "Vorname",
+          "column_name": "Gast_Vorname",
+          "data_type": "text",
+          "size": 6,
+          "transferable": false,
+          "list_visible": true,
+          "required": false,
+          "priority": "high",
+          "view_order": 2,
+          "gemeinde": 1
+        },
+        {
+          "id": 3,
+          "created": "2019-08-22T10:26:05.736723+02:00",
+          "modified": "2019-08-22T10:26:05.736825+02:00",
+          "alias": "Strasse",
+          "column_name": "Gast_Strasse",
+          "data_type": "text",
+          "size": 12,
+          "transferable": false,
+          "list_visible": false,
+          "required": false,
+          "priority": "low",
+          "view_order": 3,
+          "gemeinde": 1
+        },
+        {
+          "id": 4,
+          "created": "2019-08-22T10:26:29.499058+02:00",
+          "modified": "2019-08-22T10:26:29.499139+02:00",
+          "alias": "PLZ",
+          "column_name": "Gast_Postleitzahl",
+          "data_type": "text",
+          "size": 4,
+          "transferable": false,
+          "list_visible": false,
+          "required": false,
+          "priority": "low",
+          "view_order": 4,
+          "gemeinde": 1
+        },
+        {
+          "id": 5,
+          "created": "2019-08-22T10:26:42.577394+02:00",
+          "modified": "2019-08-22T10:27:14.479290+02:00",
+          "alias": "Ort",
+          "column_name": "Gast_Wohnort",
+          "data_type": "text",
+          "size": 8,
+          "transferable": false,
+          "list_visible": true,
+          "required": false,
+          "priority": "low",
+          "view_order": 5,
+          "gemeinde": 1
+        },
+        {
+          "id": 6,
+          "created": "2019-08-26T13:50:23.435905+02:00",
+          "modified": "2019-09-05T15:02:12.258999+02:00",
+          "alias": "Geburtsdatum",
+          "column_name": "Gast_Geburtstag",
+          "data_type": "date",
+          "size": 4,
+          "transferable": false,
+          "list_visible": false,
+          "required": false,
+          "priority": "low",
+          "view_order": 6,
+          "gemeinde": 1
+        }
+      ],
+      "created": "2019-08-21T15:00:59.512049+02:00",
+      "modified": "2019-08-21T15:36:50.593090+02:00",
+      "alias": "Fehmarn",
+      "using_paper": true,
+      "using_ems": true,
+      "datatable_name": "dat_99999"
+    }
+  ],
+  "created": "2019-09-04T09:52:03.825645+02:00",
+  "modified": "2019-09-04T09:52:03.825762+02:00",
+  "permissions": [
+    "authentication.add_vermieteraccount",
+    "authentication.change_vermieteraccount",
+    "authentication.delete_vermieteraccount",
+    "authentication.view_vermieteraccount",
+    "common.view_beherberger",
+    "common.view_objekt"
+  ]
+}
+</code></pre>            <div class="page-break"></div>
+
+    <div class="chapter-hint">Methoden</div>
+
+<h1 id="page-41">Meldescheine stornieren</h1>
+<p id="bkmrk-dieser-aufruf-fr%C3%A4gt-">Dieser Aufruf setzt den Status der übergebenen Meldescheine auf "storniert".</p>
+<p id="bkmrk-stornierte-meldesche" class="callout info">Stornierte Meldescheine sind nicht länger veränderbar.</p>
+<div id="bkmrk-"></div>
+<table id="bkmrk-get-meldeschein%2Fget%2F" class="codehilitetable" style="width: 887px;"><tbody><tr><td class="code" style="width: 887px;">
+<div>
+<pre> POST  import/meldeschein/stornieren/
+</pre>
+</div>
+</td>
+</tr></tbody></table><h2 id="bkmrk-parameter">Parameter</h2>
+<div id="bkmrk-name-datentyp-verwen">
+<div>
+<table><thead><tr><th>Name</th>
+<th>Datentyp</th>
+<th>Verwendung</th>
+</tr></thead><tbody><tr><td>meta</td>
+<td>Objekt</td>
+<td><a title="Meta Objekt" href="https://wiki.meldescheine.de/books/api/page/meta-objekt">Meta-Objekt</a></td>
+</tr><tr><td>meldescheine</td>
+<td>Array</td>
+<td>Array mit  Meldeschein-IDs</td>
+</tr></tbody></table></div>
+</div>
+<h2 id="bkmrk-beispiele">Beispiele</h2>
+<p id="bkmrk-folgendes-beispiel-r">Folgendes Beispiel storniert zwei Meldescheine</p>
+<h5 id="bkmrk-request%3A">Request</h5>
+<div id="bkmrk--0"></div>
+<pre id="bkmrk-%7B-%22meta%22%3A-%7B-%22gemeind"><code class="language-json">{
+	"meta": {
+		"gemeinde": 1,
+		"objekt": 2049
+	},
+	"meldescheine": [
+		347,348
+	]
+}</code></pre>
+<div id="bkmrk--1"></div>
+<h5 id="bkmrk-response">Response</h5>
+<div id="bkmrk-json"><label for="__tab_2_0">JSON</label>
+<div></div>
+</div>
+<pre id="bkmrk-%7B-%22meta%22%3A-%7B-%22gemeind-0"><code class="language-JSON">{
+    "meta": {
+        "gemeinde": 1,
+        "objekt": 2049,
+        "requestId": "5546961c-8d5a-11eb-b450-c04a00212a69",
+        "timestamp": "2021-03-25T12:07:48.219553",
+        "user": {
+            "id": 2,
+            "username": "admin",
+            "alias": "Administrator"
+        }
+    },
+    "status": "success",
+    "meldescheine": [
+        347,348
+    ]
+}</code></pre>
+<div id="bkmrk--2"></div>
+<div id="bkmrk--3"></div>
+<div id="bkmrk-%C2%A0"><br><label for="__tab_2_1"> </label></div>                
+</div>
+</body>
+</html>
